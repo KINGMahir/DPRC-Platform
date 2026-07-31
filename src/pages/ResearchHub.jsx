@@ -1,15 +1,19 @@
-import ProjectsSection from "../sections/ProjectsSection.jsx";
-import TeamSection from "../sections/TeamSection.jsx";
-import PublicationsSection from "../sections/PublicationsSection.jsx";
-import EventsSection from "../sections/EventsSection.jsx";
+import ResearchHero from "../sections/research/ResearchHero";
+import SearchResearch from "../sections/research/SearchResearch";
+import ResearchCategories from "../sections/research/ResearchCategories";
+import FeaturedProjects from "../sections/research/FeaturedProjects";
+import RecentPublications from "../sections/research/RecentPublications";
+import ResearchStats from "../sections/research/ResearchStats";
 
 export default function ResearchHub() {
   return (
-    <div className="space-y-16 md:space-y-24 px-4 md:px-6">
-      <ProjectsSection />
-      <TeamSection />
-      <PublicationsSection />
-      <EventsSection />
-    </div>
+    <>
+      <ResearchHero />
+      <SearchResearch />
+      <ResearchCategories />
+      <FeaturedProjects />
+      <RecentPublications />
+      <ResearchStats />
+    </>
   );
 }
