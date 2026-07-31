@@ -1,24 +1,26 @@
 # DPRC Project Dashboard
 
+
 ## Current Phase
-Sprint 1 - Foundation
+
+Phase 2 - Frontend MVP
 
 ## Progress
 
-Documentation: ✅
-Git: ✅
-Project Structure: ✅
-React Architecture: ✅
-Homepage: ⏳
-Authentication: ⏳
-Backend: ⏳
-Database: ⏳
-Mobile App: ⏳
+Overall Progress: ~25%
 
-## Current Sprint Goal
+### Completed
 
-Build the MVP frontend.
+✅ Project documentation  
+✅ React architecture  
+✅ Routing system  
+✅ Layout system  
+✅ Homepage V1  
 
-## Next Milestone
+### In Progress
 
-Complete the Home page.
+🟡 Frontend platform modules
+
+### Next Milestone
+
+Research Hub

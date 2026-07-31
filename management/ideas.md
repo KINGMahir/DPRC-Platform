@@ -23,3 +23,14 @@
 - Mentor system
 - Student portfolios
 - Research competitions
+
+
+## Future Platform Ideas
+
+- User profiles connected to projects
+- Research collaboration system
+- Organization/team management
+- Project merging and collaboration
+- Research publication network
+- Engineering knowledge ecosystem
+- AI research assistant
