@@ -122,3 +122,29 @@ Implemented sections:
 ### Architecture Improvements
 
 Research Hub follows:
+Page
+|
+└── Sections
+|
+└── Components
+
+This keeps the platform scalable for future:
+
+- User profiles
+- Projects
+- Organizations
+- Publications
+- Database integration
+
+### Learning / Notes
+
+- Continued separating presentation sections from page-level routing.
+- Established Research Hub as the first major platform module after the homepage.
+- Designed frontend structure with future backend integration in mind.
+
+### Next Steps
+
+- Review Research Hub V1 UI.
+- Improve reusable components.
+- Connect research entities with future data model.
+- Prepare backend architecture planning.

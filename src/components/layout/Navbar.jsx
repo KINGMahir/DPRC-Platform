@@ -5,7 +5,7 @@ export default function Navbar() {
     <header className="bg-blue-900 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between md:p-6">
         <Link to="/" className="text-xl font-bold tracking-wide md:text-3xl">
-          DPRC Research Hub
+          Dhaka Polytechnic Reseach Club
         </Link>
 
         <nav className="flex flex-wrap gap-3 md:gap-6">
