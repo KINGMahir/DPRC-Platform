@@ -1,31 +1,86 @@
-import ProfileHeader from "../components/ProfileHeader";
-import AboutCard from "../components/AboutCard";
-import SkillsCard from "../components/SkillsCard";
-import EducationCard from "../components/EducationCard";
-import ExperienceCard from "../components/ExperienceCard";
-import AchievementsCard from "../components/AchievementsCard";
-import ProjectsCard from "../components/ProjectsCard";
-import OrganizationsCard from "../components/OrganizationsCard";
-import PublicationsCard from "../components/PublicationsCard";
-import ActivityTimeline from "../components/ActivityTimeline";
+import {
+  ProfileHeader,
+  AboutCard,
+  SkillsCard,
+  EducationCard,
+  ExperienceCard,
+  AchievementsCard,
+  ProjectsCard,
+  OrganizationsCard,
+  PublicationsCard,
+  ActivityTimeline,
+} from "../";
+
+import Container from "../../../shared/layout/Container";
+import PageHeader from "../../../shared/layout/PageHeader";
+
 
 export default function ProfilePage() {
-  return (
-    <div className="max-w-7xl mx-auto px-6 py-10 space-y-8">
-      <ProfileHeader />
-      <AboutCard />
 
-      <div className="grid lg:grid-cols-2 gap-6">
-        <SkillsCard />
-        <EducationCard />
+  return (
+
+    <Container>
+
+
+      <PageHeader
+        title="Profile"
+        description="
+          Personal profile, engineering background,
+          research interests and contributions.
+        "
+      />
+
+
+
+      <div className="space-y-8">
+
+
+        <ProfileHeader />
+
+
+        <AboutCard />
+
+
+
+        <div
+          className="
+            grid
+            gap-6
+            lg:grid-cols-2
+          "
+        >
+
+          <SkillsCard />
+
+          <EducationCard />
+
+        </div>
+
+
+
+        <ExperienceCard />
+
+
+        <AchievementsCard />
+
+
+        <ProjectsCard />
+
+
+        <OrganizationsCard />
+
+
+        <PublicationsCard />
+
+
+        <ActivityTimeline />
+
+
       </div>
 
-      <ExperienceCard />
-      <AchievementsCard />
-      <ProjectsCard />
-      <OrganizationsCard />
-      <PublicationsCard />
-      <ActivityTimeline />
-    </div>
+
+    </Container>
+
   );
+
 }

@@ -1,34 +1,55 @@
 import users from "../../../mock/users";
 
+import Card from "../../../shared/components/Card";
+import Badge from "../../../shared/components/Badge";
+
+
 export default function AboutCard() {
 
   const user = users[0];
 
+
+  if (!user) {
+    return null;
+  }
+
+
   return (
 
-    <section className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+    <Card>
 
-
-      <h2 className="mb-6 text-2xl font-bold">
+      <h2 className="
+        mb-6
+        text-2xl
+        font-bold
+      ">
         About
       </h2>
 
 
-      <p className="leading-relaxed text-gray-700">
+      <p className="
+        leading-relaxed
+        text-gray-700
+      ">
         {user.bio}
       </p>
 
 
 
-      <div className="mt-6">
+      <div className="mt-8">
 
-
-        <h3 className="mb-3 text-lg font-semibold">
+        <h3 className="
+          mb-3
+          text-lg
+          font-semibold
+        ">
           Mission
         </h3>
 
 
-        <p className="text-gray-700">
+        <p className="
+          text-gray-700
+        ">
           {user.mission}
         </p>
 
@@ -37,25 +58,33 @@ export default function AboutCard() {
 
 
 
-      <div className="mt-6">
+      <div className="mt-8">
 
 
-        <h3 className="mb-3 text-lg font-semibold">
+        <h3 className="
+          mb-3
+          text-lg
+          font-semibold
+        ">
           Research Interests
         </h3>
 
 
-        <div className="flex flex-wrap gap-2">
 
+        <div className="
+          flex
+          flex-wrap
+          gap-2
+        ">
 
-          {user.researchInterests.map((interest) => (
+          {user.researchInterests.map((item) => (
 
-            <span
-              key={interest}
-              className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700"
+            <Badge
+              key={item}
+              variant="blue"
             >
-              {interest}
-            </span>
+              {item}
+            </Badge>
 
           ))}
 
@@ -66,7 +95,8 @@ export default function AboutCard() {
       </div>
 
 
-    </section>
+    </Card>
 
   );
+
 }

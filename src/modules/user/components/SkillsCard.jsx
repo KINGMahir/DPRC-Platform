@@ -1,30 +1,58 @@
 import users from "../../../mock/users";
 
+import Card from "../../../shared/components/Card";
+import Badge from "../../../shared/components/Badge";
+
+
 export default function SkillsCard() {
 
   const user = users[0];
 
-  return (
-    <section className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
 
-      <h2 className="mb-6 text-2xl font-bold">
+  if (!user) {
+    return null;
+  }
+
+
+  return (
+
+    <Card>
+
+
+      <h2 className="
+        mb-6
+        text-2xl
+        font-bold
+      ">
         Skills
       </h2>
 
 
-      <div className="flex flex-wrap gap-3">
+
+      <div className="
+        flex
+        flex-wrap
+        gap-3
+      ">
+
 
         {user.skills.map((skill) => (
-          <span
+
+          <Badge
             key={skill}
-            className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700"
+            variant="blue"
           >
             {skill}
-          </span>
+          </Badge>
+
         ))}
+
 
       </div>
 
-    </section>
+
+    </Card>
+
   );
+
 }
