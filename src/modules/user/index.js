@@ -9,5 +9,4 @@ export { default as OrganizationsCard } from "./components/OrganizationsCard";
 export { default as PublicationsCard } from "./components/PublicationsCard";
 export { default as ActivityTimeline } from "./components/ActivityTimeline";
 
-
 export { default as ProfilePage } from "./pages/ProfilePage";

@@ -1,20 +1,12 @@
+import GlassPanel from "./GlassPanel";
+
 export default function Card({
-    children,
-    className = "",
-  }) {
-    return (
-      <section
-        className={`
-          rounded-2xl
-          border
-          border-gray-200
-          bg-white
-          p-8
-          shadow-sm
-          ${className}
-        `}
-      >
-        {children}
-      </section>
-    );
-  }
+  children,
+  className = "",
+}) {
+  return (
+    <GlassPanel className={className}>
+      {children}
+    </GlassPanel>
+  );
+}

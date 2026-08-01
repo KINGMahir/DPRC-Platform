@@ -1,12 +1,17 @@
 # Platform Architecture
 
-## Overview
+> **Version:** 2.0
+> **Status:** Living Document
 
-The DPRC Platform is a collaborative engineering and research operating system designed to connect people, projects, organizations, publications, knowledge and innovation into one unified ecosystem.
+---
 
-Unlike a traditional website, the DPRC Platform is built as an interconnected digital environment where every resource can interact with every other resource.
+# Overview
 
-The architecture is designed to support long-term scalability across web, desktop, mobile, tablet and future operating system implementations.
+The DPRC Platform is a collaborative engineering and research operating system designed to connect people, organizations, projects, publications, laboratories, technologies, equipment, datasets and engineering knowledge into one continuously evolving ecosystem.
+
+Unlike conventional websites where pages exist independently, every entity within the DPRC Platform is interconnected through relationships. Navigation is not page-centric but knowledge-centric, allowing users to explore information naturally across the platform.
+
+The architecture is designed to remain scalable across web, desktop, mobile, tablet and future platform implementations without changing its underlying principles.
 
 ---
 
@@ -14,33 +19,38 @@ The architecture is designed to support long-term scalability across web, deskto
 
 The platform exists to remove barriers between engineering education, research, innovation, industry and collaboration.
 
-Every user, project, publication, organization, laboratory and engineering asset becomes part of one connected ecosystem.
+Every user, organization, project, publication, technology, laboratory, institute and engineering asset becomes part of one unified engineering graph.
 
 ---
 
 # Core Principles
 
-The platform is built around six principles:
+The platform follows eight architectural principles.
 
-* Identity
-* Collaboration
-* Connectivity
-* Knowledge
-* Transparency
+* Identity First
+* Entity-Centric Design
+* Universal Connectivity
+* Collaboration by Default
+* Modular Architecture
 * Scalability
+* Intelligent Discovery
+* Future-Proof Design
 
 ---
 
 # Platform Layers
 
-```
-Application Layer
+```text
+Presentation Layer (UI)
+        │
+        ▼
+Navigation Layer
         │
         ▼
 Feature Modules
         │
         ▼
-Resource Layer
+Entity Graph
         │
         ▼
 Identity Layer
@@ -51,69 +61,67 @@ Data Layer
 
 ---
 
-# Identity Layer
+# Entity-First Architecture
 
-Everything starts with identity.
+Everything inside the platform is treated as an Entity.
 
-Every resource has:
+Examples include:
 
-* Internal ID
-* Public ID
-* Owner
-* Metadata
-* Permissions
-* Activity History
-
----
-
-# Resource Layer
-
-Everything inside DPRC is treated as a resource.
-
-Examples:
-
-* Users
-* Projects
-* Organizations
-* Publications
-* Events
-* Courses
-* Laboratories
+* User
+* Organization
+* Project
+* Publication
+* Laboratory
+* Institute
+* Company
+* Skill
+* Badge
+* Course
+* Technology
+* Dataset
 * Equipment
-* Datasets
-* Patents
-* Discussions
-* Repositories
+* Patent
+* Competition
+* Event
+* Repository
+* Research Area
 
-Every resource follows common architectural rules.
+Every entity follows a common architecture regardless of its type.
 
 ---
 
-# Resource Structure
+# Universal Entity Structure
 
-Every resource contains:
+Every entity contains:
 
 * Internal ID
 * Public Identifier
-* Title or Name
+* Name
 * Description
-* Owner
-* Members
-* Visibility
-* Files
-* Activity Timeline
-* Comments
+* Metadata
+* Relationships
+* Timeline
+* Statistics
+* Activity
 * Tags
+* Files
+* Visibility
+* Owner
+* Permissions
 * Creation Date
-* Last Updated Date
+* Last Updated
+
+Additional properties are added depending on entity type.
 
 ---
 
-# Identity System
+# Identity Layer
 
-Each user has three identities.
+Every entity possesses three identities.
 
 ## Internal ID
+
+Platform database identifier.
 
 Example:
 
@@ -121,33 +129,34 @@ Example:
 USR-000001
 ```
 
-Used only by the platform.
-
 ---
 
-## Username
+## Public Identifier
 
-Example:
+Human-readable identifier.
+
+Examples:
 
 ```
 @mahir
+
+research-hub
+
+dhaka-polytechnic
 ```
 
 Used for:
 
+* URLs
 * Search
 * Mentions
-* URLs
-
-Example:
-
-```
-/u/mahir
-```
+* References
 
 ---
 
-## Professional ID
+## Official Platform Identifier
+
+Used for certificates, memberships, publications and official records.
 
 Example:
 
@@ -155,248 +164,412 @@ Example:
 DPRC-BD-ENG-000001
 ```
 
-Used for:
-
-* Membership
-* Certificates
-* Publications
-* QR Cards
-* Official records
-
 ---
 
-# Resource Relationships
+# Universal Relationship Graph
 
-Resources are connected instead of isolated.
+Nothing exists independently.
 
-```
+Every entity is connected with multiple other entities.
+
+Example:
+
+```text
 User
 │
-├── Projects
-│
+├── Skills
 ├── Organizations
-│
+├── Projects
 ├── Publications
-│
+├── Badges
 ├── Events
-│
-└── Achievements
+├── Technologies
+├── Education
+├── Experience
+└── Research Interests
 ```
 
 Projects connect to:
 
-```
+```text
 Project
 │
 ├── Members
-├── Organization
+├── Organizations
 ├── Publications
-├── Files
+├── Technologies
 ├── Datasets
 ├── Equipment
 ├── Discussions
-└── Activity
+├── Tasks
+└── Timeline
 ```
 
 Organizations connect to:
 
-```
+```text
 Organization
 │
 ├── Members
 ├── Projects
 ├── Publications
-├── Events
-└── Laboratories
+├── Laboratories
+├── Departments
+└── Events
 ```
 
----
-
-# Ownership Model
-
-Every resource has an owner.
-
-Owner responsibilities include:
-
-* Managing members
-* Managing permissions
-* Editing information
-* Approving requests
-* Archiving resources
-
-Ownership may be transferred when necessary.
+Relationships continue expanding without architectural limitations.
 
 ---
 
-# Permission System
+# Interconnected Navigation
 
-Resources define access levels.
+Navigation is not limited to menus.
 
-Visibility:
+Every visible entity inside the interface is interactive.
 
-* Public
-* Members Only
-* Private
+Examples:
 
-Roles may include:
+Click a Skill
 
-* Owner
-* Administrator
-* Maintainer
-* Research Lead
-* Contributor
-* Reviewer
-* Viewer
+↓
+
+Skill Profile
+
+↓
+
+Related Users
+
+↓
+
+Organizations using the skill
+
+↓
+
+Projects requiring the skill
+
+↓
+
+Publications using the technology
+
+↓
+
+Statistics
+
+↓
+
+Global skill graph
+
+---
+
+Click an Institute
+
+↓
+
+Institute Profile
+
+↓
+
+Students
+
+↓
+
+Faculty
+
+↓
+
+Research Labs
+
+↓
+
+Departments
+
+↓
+
+Projects
+
+↓
+
+Publications
+
+↓
+
+Collaborating Organizations
+
+---
+
+Click a Badge
+
+↓
+
+Badge Description
+
+↓
+
+Requirements
+
+↓
+
+Eligible Users
+
+↓
+
+Achievement Statistics
+
+↓
+
+Related Skills
+
+↓
+
+Learning Resources
+
+---
+
+Every object becomes an entry point into the knowledge graph.
+
+---
+
+# Context Navigation
+
+Navigation always preserves context.
+
+Example:
+
+```text
+Home
+
+↓
+
+User
+
+↓
+
+Skill
+
+↓
+
+Project
+
+↓
+
+Publication
+
+↓
+
+Organization
+
+↓
+
+Laboratory
+
+↓
+
+Equipment
+
+↓
+
+Technology
+
+↓
+
+Back to User
+```
+
+Users should never feel they have reached a dead end.
+
+Every screen offers multiple paths for exploration.
+
+---
+
+# Intelligent UI Philosophy
+
+The interface is designed as an interactive visualization of platform knowledge rather than a collection of webpages.
+
+Pages contain independent Sections.
+
+Each section represents an entity container capable of expansion.
+
+Examples:
+
+* Skills Section
+* Education Section
+* Publications Section
+* Experience Section
+* Technologies Section
+* Organizations Section
+
+Initially these sections summarize information.
+
+When selected, they expand into dedicated entity views with deeper relationships and analytics.
+
+---
+
+# Section Expansion Model
+
+Every section can evolve into its own module.
+
+Example:
+
+Profile
+
+↓
+
+Skills Section
+
+↓
+
+Skill Module
+
+↓
+
+Skill Analytics
+
+↓
+
+Global Statistics
+
+↓
+
+Related Users
+
+↓
+
+Learning Resources
+
+↓
+
+Projects
+
+↓
+
+Research Areas
+
+This allows the interface to scale indefinitely without redesign.
+
+---
+
+# Future UI Architecture
+
+The UI should communicate advanced technology rather than imitate traditional dashboards.
+
+Design goals include:
+
+* Layered depth
+* Glass and translucent surfaces
+* Dynamic gradients
+* Motion with purpose
+* Context-aware transitions
+* Interactive data visualization
+* Relationship animations
+* Knowledge graph exploration
+* Adaptive layouts
+* Real-time statistics
+* Immersive engineering aesthetic
+
+Future enhancements may include particle systems, animated backgrounds, WebGL visualization and AI-assisted interaction while maintaining performance and accessibility.
 
 ---
 
 # Collaboration Model
 
-Collaboration is a core feature.
+Users may simultaneously belong to multiple organizations, projects, laboratories and research groups.
 
-Users can:
+Organizations may collaborate on multiple projects.
 
-* Join projects
-* Invite members
-* Follow organizations
-* Publish together
-* Review research
-* Share resources
+Projects may generate multiple publications.
 
-Projects can have multiple organizations.
+Publications may reference multiple projects.
 
-Organizations can have multiple projects.
-
-Users can belong to multiple organizations simultaneously.
+Every relationship is many-to-many whenever appropriate.
 
 ---
 
 # Activity System
 
-Every important action generates activity.
+Every important platform event generates permanent history.
 
-Examples:
+Examples include:
 
-* User joined
-* Project created
-* Publication uploaded
-* Member invited
-* Research updated
-* Event created
-
-Activities build a permanent history.
-
----
-
-# Timeline System
-
-Every resource has its own timeline.
-
-Examples:
-
-User Timeline
-
-* Joined platform
+* Joined organization
 * Created project
-* Published paper
-* Won competition
+* Published research
+* Earned badge
+* Completed certification
+* Uploaded dataset
+* Opened collaboration
+* Reviewed publication
 
-Project Timeline
-
-* Created
-* Members joined
-* Prototype completed
-* Paper published
-* Version released
+Activities become searchable platform knowledge.
 
 ---
 
 # Search Architecture
 
-Search should work across every resource.
+Search operates across every entity.
 
-Users can search by:
-
-* Name
-* Tags
-* Skills
-* Technologies
-* Organizations
-* Categories
-* Keywords
-
-Search results may include:
+Queries may return:
 
 * Users
-* Projects
-* Publications
-* Organizations
-* Events
-
----
-
-# Notification System
-
-Users receive notifications for:
-
-* Invitations
-* Project updates
-* Publication reviews
-* Organization announcements
-* Mentions
-* Collaboration requests
-
----
-
-# Messaging System
-
-Future communication includes:
-
-* Direct messages
-* Project discussions
-* Organization discussions
-* Announcement channels
-
----
-
-# Recommendation System
-
-The platform recommends:
-
-* Projects
-* Collaborators
-* Organizations
-* Publications
-* Events
-
-Recommendations are based on:
-
 * Skills
-* Interests
-* Activity
-* Collaboration history
+* Organizations
+* Projects
+* Publications
+* Technologies
+* Events
+* Laboratories
+* Courses
+* Companies
+
+Future semantic search and AI-assisted discovery will operate on the same entity graph.
+
+---
+
+# Recommendation Engine
+
+Recommendations are generated through relationships between entities.
+
+Possible recommendations include:
+
+* Collaborators
+* Projects
+* Organizations
+* Skills to learn
+* Publications
+* Competitions
+* Grants
+* Laboratories
+* Technologies
+
+Recommendations improve continuously as platform knowledge grows.
 
 ---
 
 # AI Integration
 
-Artificial Intelligence will become a platform-wide service.
+Artificial Intelligence operates across the entire platform rather than individual modules.
 
-Capabilities include:
+Capabilities may include:
 
-* Research recommendations
+* Research discovery
+* Knowledge summarization
 * Collaboration suggestions
-* Project summaries
-* Publication summaries
-* Technical assistance
-* Engineering knowledge search
+* Project recommendations
+* Skill development
+* Publication assistance
+* Semantic search
+* Engineering assistant
 * Career guidance
+
+AI should understand relationships across the complete platform graph.
 
 ---
 
-# Cross Platform Architecture
+# Cross-Platform Architecture
 
-The same ecosystem should support:
+All clients share the same architecture.
+
+Supported clients include:
 
 * Web
 * Desktop
@@ -404,34 +577,39 @@ The same ecosystem should support:
 * Tablet
 * Future DPRC Operating System
 
-All clients connect to the same platform architecture.
+Only presentation changes between platforms; the entity graph remains identical.
 
 ---
 
 # Future Expansion
 
-Additional resource types may include:
+New entity types can be introduced without redesigning the platform.
 
+Possible future additions include:
+
+* Funding
+* Grants
+* Scholarships
+* Engineering Competitions
 * Startups
 * Companies
-* Engineering Competitions
-* Grants
-* Funding
-* Scholarships
-* Open Source Repositories
 * Digital Libraries
 * Courses
 * Certifications
 * Marketplaces
+* Open Hardware
+* Open Source Repositories
 
-The architecture is designed so new resource types can be added without redesigning the platform.
+The architecture is intentionally extensible.
 
 ---
 
 # Long-Term Vision
 
-The DPRC Platform is not intended to be a traditional research website.
+The DPRC Platform is not a collection of webpages.
 
-It is intended to become a collaborative engineering and research operating system where people, organizations, projects, publications, knowledge and innovation exist within one connected ecosystem.
+It is an interconnected engineering knowledge ecosystem where every entity can relate to every other entity.
 
-Every new feature developed for the platform should follow the architectural principles defined in this document to ensure consistency, scalability, interoperability and long-term sustainability.
+The user interface, navigation system, database and AI services are all built upon the same universal entity graph, allowing the platform to grow continuously without fundamental architectural redesign.
+
+Every future feature should strengthen this interconnected ecosystem while preserving modularity, scalability, interoperability and long-term sustainability.
