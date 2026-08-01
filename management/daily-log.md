@@ -250,4 +250,142 @@ Completed:
 - Improve global UI consistency.
 
 - Continue platform module development.
+
+
+## 2026-08-01
+
+### Completed
+
+## Profile System Design Improvement
+
+Improved the profile system from a simple portfolio layout into a more structured knowledge-based interface.
+
+Updated design approach:
+
+- About section:
+  - Elegant text presentation
+  - Research interest entities
+
+- Skills section:
+  - Changed from simple skill list to field/domain-based structure.
+  - Introduced separation between:
+    - Field
+    - Domain
+    - Skill Type
+
+- Projects section:
+  - Improved project cards with glass-style design.
+  - Added entity-based visualization for:
+    - Technologies
+    - Research Areas
+    - Organizations
+
+- Organizations section:
+  - Started adapting organization data into richer entity cards.
+
+
+## UI Component System Improvements
+
+Created new semantic UI components:
+
+- `EntityChip`
+  - Used for knowledge entities:
+    - Skills
+    - Technologies
+    - Research Areas
+    - Organizations
+
+- `StatusBadge`
+  - Used for state information:
+    - Completed
+    - Running
+    - In Progress
+
+- `PeriodDisplay`
+  - Used for timeline information:
+    - Education duration
+    - Experience duration
+    - Project periods
+
+
+## Data Architecture Improvements
+
+Improved mock data structure to better prepare for future database integration.
+
+Changes:
+
+- Separated domain data into individual mock modules:
+
 ```
+
+src/mock/
+
+users/
+organizations/
+projects/
+publications/
+technologies/
+skills/
+research/
+
+```
+
+- Components now consume structured data instead of large combined objects.
+
+- Mock data is being treated as a temporary API replacement.
+
+
+## Design Decisions
+
+Established information visualization rules:
+
+- Entities should look interactive.
+- Status should look like state indicators.
+- Time periods should use timeline visuals.
+
+Avoid mixing these concepts into one component.
+
+
+## Lessons Learned
+
+- Good UI requires correct information hierarchy.
+- Not every piece of data should behave like a clickable node.
+- Component design should consider future database relationships.
+- Visual consistency is easier when data semantics are clear.
+
+
+## Problems / Notes
+
+- Some early sections used the same visual treatment for different data types.
+- Refactored education design to separate:
+  - Field
+  - Status
+  - Timeline
+
+
+## Current Status
+
+Completed:
+
+✅ Glass-style profile cards  
+✅ Entity-based project visualization  
+✅ Skill domain structure foundation  
+✅ Semantic UI components  
+✅ Improved mock data organization  
+
+
+In Progress:
+
+- Education visual refinement
+- Experience section redesign
+- Organization card improvement
+- Publication system
+
+
+## Next Session
+
+- Complete Education card design.
+- Build Experience module using the same design language.
+- Refactor Achievements and Publications.
+```
+

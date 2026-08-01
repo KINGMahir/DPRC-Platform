@@ -30,7 +30,6 @@ research platforms.`,
     mission:
       "To build a collaborative engineering ecosystem connecting students, researchers, industries and organizations.",
 
-
     // Research
     researchInterests: [
       "Artificial Intelligence",
@@ -43,39 +42,40 @@ research platforms.`,
       "Research Collaboration",
     ],
 
-
     // Skills
-    skills: [
-      "React",
-      "JavaScript",
-      "Node.js",
-      "HTML",
-      "CSS",
-      "Tailwind CSS",
-      "Git",
-      "Linux",
-      "Arduino",
-      "C++",
-      "Engineering Research",
-    ],
+    skillIds: [
 
+      "SKL-000001",
+      "SKL-000002",
+      "SKL-000003",
+      "SKL-000004",
+      "SKL-000005",
+      "SKL-000006",
+      "SKL-000007",
+      "SKL-000008",
+    
+      "SKL-000009",
+      "SKL-000010",
+      "SKL-000011",
+      "SKL-000012",
+      "SKL-000013",
+      "SKL-000014",
+    
+      "SKL-000015",
+      "SKL-000016",
+      "SKL-000017",
+    
+      "SKL-000018",
+      "SKL-000019",
+      "SKL-000020",
+    
+    ],
 
     // Education
-    education: [
-      {
-        id: 1,
-        institute: "Dhaka Polytechnic Institute",
-        degree: "Diploma in Electrical Engineering",
-        year: "Completed",
-      },
-      {
-        id: 2,
-        institute: "University",
-        degree: "BBA (Accounting)",
-        year: "Running",
-      },
+    educationIds: [
+      "EDU-000001",
+      "EDU-000002",
     ],
-
 
     // Experience
     experience: [
@@ -87,31 +87,16 @@ research platforms.`,
       },
     ],
 
-
     // Organizations
-    organizations: [
-      {
-        id: 1,
-        name: "Dhaka Polytechnic Research Club",
-        role: "Founder",
-      },
+    organizationIds: [
+      "ORG-000001",
     ],
 
-
-    // Projects
-    projects: [
-      {
-        id: 1,
-        title: "DPRC Platform",
-        status: "In Progress",
-      },
-      {
-        id: 2,
-        title: "Research Hub",
-        status: "Planning",
-      },
+    // Project References
+    projectIds: [
+      "PRJ-000001",
+      "PRJ-000002",
     ],
-
 
     // Publications
     publications: [
@@ -122,13 +107,11 @@ research platforms.`,
       },
     ],
 
-
     // Achievements
     achievements: [
       "Founder of DPRC",
       "Engineering Research Platform Designer",
     ],
-
 
     // Activity
     activityTimeline: [
@@ -154,7 +137,6 @@ research platforms.`,
       },
     ],
 
-
     // Statistics
     statistics: {
       projects: 12,
@@ -162,7 +144,6 @@ research platforms.`,
       organizations: 3,
       contributions: 124,
     },
-
 
     // Social
     social: {
@@ -173,6 +154,5 @@ research platforms.`,
     },
   },
 ];
-
 
 export default users;

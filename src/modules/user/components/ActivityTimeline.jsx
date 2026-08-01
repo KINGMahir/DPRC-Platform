@@ -1,4 +1,4 @@
-import users from "../../../mock/users";
+import users from "../../../mock/users/users";
 
 import Card from "../../../shared/components/Card";
 

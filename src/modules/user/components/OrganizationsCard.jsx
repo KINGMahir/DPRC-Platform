@@ -1,5 +1,5 @@
-import users from "../../../mock/users";
-
+import users from "../../../mock/users/users";
+import organizations from "../../../mock/organizations/organizations";
 import Card from "../../../shared/components/Card";
 import Badge from "../../../shared/components/Badge";
 
@@ -12,6 +12,10 @@ export default function OrganizationsCard() {
   if (!user) {
     return null;
   }
+
+  const userOrganizations = organizations.filter((organization) =>
+    user.organizationIds.includes(organization.id)
+  );
 
 
   return (
@@ -32,7 +36,7 @@ export default function OrganizationsCard() {
       <div className="space-y-5">
 
 
-        {user.organizations.map((org) => (
+        {userOrganizations.map((org) => (
 
           <div
             key={org.id}

@@ -5,7 +5,7 @@ import {
   FaEdit,
 } from "react-icons/fa";
 
-import users from "../../../mock/users";
+import users from "../../../mock/users/users";
 
 import Card from "../../../shared/components/Card";
 import Button from "../../../shared/components/Button";

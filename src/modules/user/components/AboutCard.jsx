@@ -1,102 +1,133 @@
-import users from "../../../mock/users";
+import users from "../../../mock/users/users";
 
 import Card from "../../../shared/components/Card";
-import Badge from "../../../shared/components/Badge";
-
+import EntityChip from "../../../shared/components/EntityChip";
 
 export default function AboutCard() {
-
   const user = users[0];
-
 
   if (!user) {
     return null;
   }
 
-
   return (
-
     <Card>
 
-      <h2 className="
-        mb-6
-        text-2xl
-        font-bold
-      ">
-        About
-      </h2>
+      {/* About */}
+
+      <div>
+
+        <h2
+          className="
+            text-2xl
+            font-bold
+            tracking-tight
+          "
+        >
+          About
+        </h2>
+
+        <div
+          className="
+            mt-4
+            h-px
+            w-full
+            bg-white/10
+          "
+        />
+
+        <p
+          className="
+            mt-6
+            leading-8
+            opacity-80
+          "
+        >
+          {user.bio}
+        </p>
+
+      </div>
 
 
-      <p className="
-        leading-relaxed
-        text-gray-700
-      ">
-        {user.bio}
-      </p>
+      {/* Mission */}
 
+      <div className="mt-10">
 
-
-      <div className="mt-8">
-
-        <h3 className="
-          mb-3
-          text-lg
-          font-semibold
-        ">
+        <h3
+          className="
+            text-lg
+            font-semibold
+          "
+        >
           Mission
         </h3>
 
+        <div
+          className="
+            mt-3
+            h-px
+            w-full
+            bg-white/10
+          "
+        />
 
-        <p className="
-          text-gray-700
-        ">
+        <p
+          className="
+            mt-5
+            leading-8
+            opacity-80
+          "
+        >
           {user.mission}
         </p>
 
-
       </div>
 
 
+      {/* Research */}
 
-      <div className="mt-8">
+      <div className="mt-10">
 
-
-        <h3 className="
-          mb-3
-          text-lg
-          font-semibold
-        ">
+        <h3
+          className="
+            text-lg
+            font-semibold
+          "
+        >
           Research Interests
         </h3>
 
+        <div
+          className="
+            mt-3
+            h-px
+            w-full
+            bg-white/10
+          "
+        />
 
+        <div
+          className="
+            mt-6
+            flex
+            flex-wrap
+            gap-3
+          "
+        >
+          {user.researchInterests.map((interest) => (
 
-        <div className="
-          flex
-          flex-wrap
-          gap-2
-        ">
-
-          {user.researchInterests.map((item) => (
-
-            <Badge
-              key={item}
-              variant="blue"
+            <EntityChip
+              key={interest}
+              variant="research"
             >
-              {item}
-            </Badge>
+              {interest}
+            </EntityChip>
 
           ))}
-
-
         </div>
-
 
       </div>
 
-
     </Card>
-
   );
-
 }
