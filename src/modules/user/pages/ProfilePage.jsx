@@ -1,12 +1,12 @@
 import {
-  AboutCard,
-  SkillsCard,
-  EducationCard,
-  ExperienceCard,
-  AchievementsCard,
-  ProjectsCard,
-  OrganizationsCard,
-  PublicationsCard,
+  AboutSection,
+  SkillsSection,
+  EducationSection,
+  ExperienceSection,
+  AchievementsSection,
+  ProjectsSection,
+  OrganizationsSection,
+  PublicationsSection,
 } from "../";
 
 
@@ -133,31 +133,31 @@ export default function ProfilePage() {
 
         <>
 
-          <AboutCard />
+          <AboutSection />
 
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="space-y-6">
 
-            <SkillsCard />
+            <SkillsSection />
 
-            <EducationCard />
+            <EducationSection />
 
           </div>
 
 
-          <ExperienceCard />
+          <ExperienceSection />
 
 
-          <AchievementsCard />
+          <AchievementsSection />
 
 
-          <ProjectsCard />
+          <ProjectsSection />
 
 
-          <OrganizationsCard />
+          <OrganizationsSection />
 
 
-          <PublicationsCard />
+          <PublicationsSection />
 
         </>
 

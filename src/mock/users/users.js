@@ -11,8 +11,8 @@ const users = [
     avatar: "",
     coverImage: "",
     role: "Founder, Dhaka Polytechnic Research Club (DPRC)",
-    headline:
-      "Engineering Student • Researcher • Open Source Enthusiast",
+    headline: "Engineering Student • Researcher • Open Source Enthusiast",
+    profileStatement: "Transforming ideas into practical engineering solutions through research, innovation and open collaboration.",
 
     // Contact
     email: "mahir@example.com",
@@ -80,10 +80,25 @@ research platforms.`,
     // Experience
     experience: [
       {
-        id: 1,
-        company: "Dhaka Polytechnic Research Club",
+        id: "EXP-000001",
+    
         position: "Founder",
-        duration: "Present",
+    
+        organization: {
+          id: "ORG-000001",
+          name: "Dhaka Polytechnic Research Club (DPRC)",
+        },
+    
+        field: "Engineering Research",
+    
+        description:
+          "Founded and leading the Dhaka Polytechnic Research Club (DPRC), building an open engineering research ecosystem, managing platform development, research initiatives, collaboration and innovation activities.",
+    
+        startYear: "2025",
+    
+        endYear: null,
+    
+        status: "Current",
       },
     ],
 
@@ -99,18 +114,14 @@ research platforms.`,
     ],
 
     // Publications
-    publications: [
-      {
-        id: 1,
-        title: "Coming Soon",
-        type: "Research Paper",
-      },
+    publicationIds: [
+      "PUB-000001",
     ],
 
     // Achievements
-    achievements: [
-      "Founder of DPRC",
-      "Engineering Research Platform Designer",
+    achievementIds: [
+      "ACH-000001",
+      "ACH-000002",
     ],
 
     // Activity

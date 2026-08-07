@@ -1,38 +1,35 @@
-import GlassPanel from "../components/GlassPanel";
-
 export default function EntityTimeline({
   items = [],
-  title = "Timeline",
 }) {
+
+  if (!items.length) {
+    return null;
+  }
+
 
   return (
 
-    <GlassPanel
-      variant="default"
+    <section
+      className="
+        py-16
+      "
     >
 
-      <div className="mb-6">
+
+      <div className="mb-10">
 
         <h2
           className="
-            text-xl
-            font-semibold
+            text-3xl
+            font-bold
           "
         >
-          {title}
+          Activity Timeline
         </h2>
 
-        <p
-          className="
-            mt-1
-            text-sm
-            opacity-60
-          "
-        >
-          Activity history and milestones
-        </p>
-
       </div>
+
+
 
 
 
@@ -40,127 +37,161 @@ export default function EntityTimeline({
         className="
           relative
           space-y-8
-          pl-8
+
+          before:absolute
+          before:left-3
+          before:top-0
+          before:h-full
+          before:w-px
+          before:bg-white/10
         "
       >
 
 
-        {/* Timeline Line */}
-
-        <div
-          className="
-            absolute
-            left-2
-            top-2
-            bottom-2
-
-            w-px
-
-            bg-gradient-to-b
-            from-cyan-400/70
-            via-blue-400/40
-            to-transparent
-          "
-        />
-
-
-
-        {items.map((item,index)=>(
+        {items.map((item) => (
 
           <div
-            key={item.id || index}
-
+            key={item.id}
             className="
               group
               relative
+              pl-10
             "
           >
 
 
-            {/* Node */}
+
+            {/* Timeline Dot */}
 
             <div
               className="
                 absolute
-                -left-8
-                top-1
+                left-0
+                top-5
 
-                h-4
-                w-4
+                h-6
+                w-6
 
                 rounded-full
 
-                bg-cyan-400
+                border
+                border-cyan-400/40
 
-                shadow-[0_0_15px_rgba(34,211,238,.8)]
+                bg-black
 
-                transition-all
-                duration-300
-
-                group-hover:scale-125
+                flex
+                items-center
+                justify-center
               "
-            />
+            >
+
+              <div
+                className="
+                  h-2
+                  w-2
+
+                  rounded-full
+
+                  bg-cyan-400
+
+                  transition-all
+                  duration-300
+                  ease-out
+
+                  group-hover:h-2
+                  group-hover:w-3
+
+                  group-hover:shadow-[0_0_16px_rgba(34,211,238,.9)]
+                "
+              />
+
+            </div>
 
 
+
+
+
+
+
+            {/* Activity Card */}
 
             <div
               className="
                 rounded-2xl
+
                 border
                 border-white/10
 
-                bg-white/5
+                bg-white/[0.03]
 
-                p-4
+                p-6
 
                 transition-all
                 duration-300
 
-                hover:border-cyan-400/40
+                hover:-translate-y-1
 
-                hover:bg-cyan-400/10
+                hover:border-cyan-400/30
 
-                hover:shadow-[0_0_25px_rgba(34,211,238,.25)]
+                hover:shadow-[0_0_25px_rgba(34,211,238,.15)]
               "
             >
 
-              <p
+
+              <div
                 className="
-                  text-xs
-                  uppercase
-                  tracking-widest
-                  opacity-60
+                  flex
+                  flex-col
+
+                  gap-4
+
+                  sm:flex-row
+                  sm:items-start
+                  sm:justify-between
                 "
               >
-                {item.date}
-              </p>
+
+                <div>
+
+                  <h3
+                    className="
+                      text-lg
+                      font-semibold
+                    "
+                  >
+                    {item.title || item.activity}
+                  </h3>
 
 
-              <h3
-                className="
-                  mt-1
-                  font-semibold
-                "
-              >
-                {item.title}
-              </h3>
+                  {item.description && (
+
+                    <p
+                      className="
+                        mt-3
+                        leading-7
+                        opacity-75
+                      "
+                    >
+                      {item.description}
+                    </p>
+
+                  )}
+
+                </div>
 
 
-              {item.description && (
-
-                <p
+                <span
                   className="
-                    mt-2
                     text-sm
-                    opacity-70
+                    opacity-60
+                    whitespace-nowrap
                   "
                 >
+                  {item.date}
+                </span>
 
-                  {item.description}
 
-                </p>
-
-              )}
+              </div>
 
 
             </div>
@@ -168,13 +199,14 @@ export default function EntityTimeline({
 
           </div>
 
+
         ))}
 
 
       </div>
 
 
-    </GlassPanel>
+    </section>
 
   );
 

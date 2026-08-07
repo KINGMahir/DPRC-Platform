@@ -1,11 +1,12 @@
 import users from "../../../mock/users/users";
 import education from "../../../mock/education/education";
-import Card from "../../../shared/components/Card";
+
 import PeriodDisplay from "../../../shared/components/PeriodDisplay";
 import EntityChip from "../../../shared/components/EntityChip";
 import StatusBadge from "../../../shared/components/StatusBadge";
 
-export default function EducationCard() {
+
+export default function EducationSection() {
 
   const user = users[0];
 
@@ -22,77 +23,98 @@ export default function EducationCard() {
 
   return (
 
-    <Card>
+    <section
+      className="
+        py-20
+        select-none
+      "
+    >
+
+      {/* Header */}
+
+      <div className="mb-12">
+
+        <p
+          className="
+            uppercase
+            tracking-[0.25em]
+            text-xs
+            font-semibold
+            text-cyan-400
+          "
+        >
+          Academic Background
+        </p>
 
 
-      <h2
-        className="
-          text-2xl
-          font-bold
-          tracking-tight
-        "
-      >
-        Education
-      </h2>
+        <h2
+          className="
+            mt-3
+            text-4xl
+            font-bold
+          "
+        >
+          Education
+        </h2>
+
+      </div>
+
+
+
 
 
       <div
         className="
-          mt-4
-          h-px
-          w-full
-          bg-white/10
-        "
-      />
-
-
-
-      <div
-        className="
-          mt-8
-          space-y-6
+          grid
+          gap-8
+          md:grid-cols-2
         "
       >
-
 
         {userEducation.map((item) => (
 
-          <div
+          <article
             key={item.id}
             className="
-              relative
-              rounded-xl
+              rounded-3xl
+
               border
               border-white/10
-              bg-white/5
-              p-6
+
+              bg-white/[0.03]
+
+              p-8
+
               transition-all
               duration-300
+              ease-out
+
+              hover:-translate-y-1
+
               hover:border-cyan-400/30
-              hover:shadow-[0_0_25px_rgba(34,211,238,.12)]
+
+              hover:shadow-[0_0_30px_rgba(34,211,238,.12)]
             "
           >
 
 
+            {/* Header */}
+
             <div
               className="
                 flex
-                flex-col
-                gap-4
-                sm:flex-row
-                sm:items-start
-                sm:justify-between
+                items-start
+                justify-between
+                gap-5
               "
             >
 
-
               <div>
-
 
                 <h3
                   className="
-                    text-xl
-                    font-semibold
+                    text-2xl
+                    font-bold
                   "
                 >
                   {item.institution}
@@ -101,15 +123,16 @@ export default function EducationCard() {
 
                 <p
                   className="
-                    mt-2
-                    opacity-80
+                    mt-3
+                    leading-relaxed
+                    opacity-70
                   "
                 >
                   {item.degree}
                 </p>
 
-
               </div>
+
 
 
 
@@ -128,21 +151,44 @@ export default function EducationCard() {
 
 
 
+
+
+
+
+            {/* Divider */}
+
             <div
               className="
-                mt-5
+                my-7
+                h-px
+                bg-white/10
+              "
+            />
+
+
+
+
+
+
+
+
+            {/* Metadata */}
+
+            <div
+              className="
                 flex
                 flex-wrap
+                items-center
                 gap-3
               "
             >
 
-
               <EntityChip
-                variant="technology"
+                variant="research"
               >
                 {item.field}
               </EntityChip>
+
 
 
               <PeriodDisplay
@@ -150,12 +196,31 @@ export default function EducationCard() {
                 end={item.endYear}
               />
 
-
             </div>
 
 
 
-          </div>
+
+
+
+
+            {/* Description placeholder */}
+
+            <p
+              className="
+                mt-7
+                text-sm
+                leading-relaxed
+                opacity-60
+              "
+            >
+              Academic qualification and specialization record.
+            </p>
+
+
+
+          </article>
+
 
         ))}
 
@@ -163,7 +228,7 @@ export default function EducationCard() {
       </div>
 
 
-    </Card>
+    </section>
 
   );
 

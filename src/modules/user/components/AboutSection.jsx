@@ -1,44 +1,41 @@
 import users from "../../../mock/users/users";
-
-import Card from "../../../shared/components/Card";
+import HeroStatement from "../../../shared/typography/HeroStatement";
+import ProfileSection from "../../../shared/profile/ProfileSection";
 import EntityChip from "../../../shared/components/EntityChip";
 
 export default function AboutCard() {
   const user = users[0];
 
-  if (!user) {
-    return null;
-  }
+  if (!user) return null;
 
   return (
-    <Card>
+    <ProfileSection
+      subtitle="Introduction"
+      title="About"
+    >
 
-      {/* About */}
+    <HeroStatement>
 
-      <div>
+      {user.profileStatement}
 
-        <h2
+    </HeroStatement>
+
+      {/* Biography */}
+
+      <div className="mt-12">
+
+        <h3
           className="
-            text-2xl
-            font-bold
-            tracking-tight
+            text-lg
+            font-semibold
           "
         >
-          About
-        </h2>
-
-        <div
-          className="
-            mt-4
-            h-px
-            w-full
-            bg-white/10
-          "
-        />
+          Biography
+        </h3>
 
         <p
           className="
-            mt-6
+            mt-4
             leading-8
             opacity-80
           "
@@ -48,34 +45,36 @@ export default function AboutCard() {
 
       </div>
 
-
       {/* Mission */}
 
-      <div className="mt-10">
-
-        <h3
-          className="
-            text-lg
-            font-semibold
-          "
-        >
-          Mission
-        </h3>
-
-        <div
-          className="
-            mt-3
-            h-px
-            w-full
-            bg-white/10
-          "
-        />
+      <div
+        className="
+          mt-12
+          rounded-2xl
+          border
+          border-cyan-400/20
+          bg-cyan-500/5
+          p-6
+        "
+      >
 
         <p
           className="
-            mt-5
+            uppercase
+            tracking-[0.2em]
+            text-xs
+            font-semibold
+            text-cyan-400
+          "
+        >
+          Mission
+        </p>
+
+        <p
+          className="
+            mt-4
+            text-lg
             leading-8
-            opacity-80
           "
         >
           {user.mission}
@@ -83,10 +82,9 @@ export default function AboutCard() {
 
       </div>
 
+      {/* Research Interests */}
 
-      {/* Research */}
-
-      <div className="mt-10">
+      <div className="mt-12">
 
         <h3
           className="
@@ -99,21 +97,13 @@ export default function AboutCard() {
 
         <div
           className="
-            mt-3
-            h-px
-            w-full
-            bg-white/10
-          "
-        />
-
-        <div
-          className="
             mt-6
             flex
             flex-wrap
             gap-3
           "
         >
+
           {user.researchInterests.map((interest) => (
 
             <EntityChip
@@ -124,10 +114,11 @@ export default function AboutCard() {
             </EntityChip>
 
           ))}
+
         </div>
 
       </div>
 
-    </Card>
+    </ProfileSection>
   );
 }
