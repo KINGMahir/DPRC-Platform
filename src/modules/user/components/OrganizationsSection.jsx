@@ -20,9 +20,7 @@ export default function OrganizationsSection() {
   return (
 
     <section
-      className="
-        py-20
-      "
+      className="py-8"
     >
 
       <div className="mb-12">

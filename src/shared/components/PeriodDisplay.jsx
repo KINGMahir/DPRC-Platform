@@ -7,23 +7,15 @@ export default function PeriodDisplay({
   
       <div
         className="
-          mt-5
+          mt-0
           flex
           items-center
-          gap-3
+          gap-2
           text-sm
           opacity-80
         "
       >
   
-        <span
-          className="
-            h-2
-            w-2
-            rounded-full
-            bg-cyan-400
-          "
-        />
   
         <span>
           {start}

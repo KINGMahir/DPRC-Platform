@@ -175,6 +175,7 @@ export default function EntityChip({
         className={`
           h-2
           w-2
+          shrink-0
 
           rounded-full
 

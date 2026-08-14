@@ -5,47 +5,34 @@ import PeriodDisplay from "../../../shared/components/PeriodDisplay";
 import EntityChip from "../../../shared/components/EntityChip";
 import StatusBadge from "../../../shared/components/StatusBadge";
 
-
 export default function EducationSection() {
-
   const user = users[0];
-
 
   if (!user) {
     return null;
   }
 
-
   const userEducation = education.filter((item) =>
     user.educationIds.includes(item.id)
   );
 
-
   return (
-
-    <section
-      className="
-        py-20
-        select-none
-      "
-    >
+    <section className="py-20 select-none">
 
       {/* Header */}
-
-      <div className="mb-12">
+      <div className="mb-8">
 
         <p
           className="
-            uppercase
-            tracking-[0.25em]
             text-xs
             font-semibold
+            uppercase
+            tracking-[0.25em]
             text-cyan-400
           "
         >
           Academic Background
         </p>
-
 
         <h2
           className="
@@ -59,10 +46,7 @@ export default function EducationSection() {
 
       </div>
 
-
-
-
-
+      {/* Education Cards */}
       <div
         className="
           grid
@@ -77,12 +61,9 @@ export default function EducationSection() {
             key={item.id}
             className="
               rounded-3xl
-
               border
               border-white/10
-
               bg-white/[0.03]
-
               p-8
 
               transition-all
@@ -90,16 +71,12 @@ export default function EducationSection() {
               ease-out
 
               hover:-translate-y-1
-
-              hover:border-cyan-400/30
-
-              hover:shadow-[0_0_30px_rgba(34,211,238,.12)]
+              hover:border-[#B08968]/50
+              hover:shadow-[0_0_30px_rgba(176,137,104,.12)]
             "
           >
 
-
             {/* Header */}
-
             <div
               className="
                 flex
@@ -109,7 +86,7 @@ export default function EducationSection() {
               "
             >
 
-              <div>
+              <div className="min-w-0">
 
                 <h3
                   className="
@@ -119,7 +96,6 @@ export default function EducationSection() {
                 >
                   {item.institution}
                 </h3>
-
 
                 <p
                   className="
@@ -133,9 +109,6 @@ export default function EducationSection() {
 
               </div>
 
-
-
-
               <StatusBadge
                 variant={
                   item.status === "Completed"
@@ -146,69 +119,41 @@ export default function EducationSection() {
                 {item.status}
               </StatusBadge>
 
-
             </div>
 
-
-
-
-
-
+            {/* Field*/}
+            <div className="mt-4">
+              <EntityChip variant="research">
+                {item.field}
+              </EntityChip>
+            </div>
 
             {/* Divider */}
-
             <div
               className="
-                my-7
+                my-6
                 h-px
                 bg-white/10
               "
             />
 
+            {/* Period */}
+            <div>
+                <PeriodDisplay
+                  start={item.startYear}
+                  end={item.endYear}
+                />
+              
+          
 
-
-
-
-
-
-
-            {/* Metadata */}
-
-            <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
-            >
-
-              <EntityChip
-                variant="research"
-              >
-                {item.field}
-              </EntityChip>
-
-
-
-              <PeriodDisplay
-                start={item.startYear}
-                end={item.endYear}
-              />
+              
 
             </div>
 
-
-
-
-
-
-
-            {/* Description placeholder */}
-
+            {/* Description */}
             <p
               className="
-                mt-7
+                mt-6
                 text-sm
                 leading-relaxed
                 opacity-60
@@ -217,19 +162,12 @@ export default function EducationSection() {
               Academic qualification and specialization record.
             </p>
 
-
-
           </article>
-
 
         ))}
 
-
       </div>
 
-
     </section>
-
   );
-
 }

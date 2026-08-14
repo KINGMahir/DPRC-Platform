@@ -49,7 +49,6 @@ export default function StatusBadge({
         className={`
           inline-flex
           items-center
-          gap-2
   
           rounded-full
   
@@ -68,16 +67,7 @@ export default function StatusBadge({
         `}
       >
   
-        <span
-          className={`
-            h-2
-            w-2
-  
-            rounded-full
-  
-            ${style.dot}
-          `}
-        />
+        
   
         {children}
   

@@ -48,7 +48,7 @@ export default function SkillsSection() {
 
     <section
       className="
-        py-20
+        py-8
         select-none
       "
     >
@@ -97,7 +97,7 @@ export default function SkillsSection() {
         className="
           grid
           gap-8
-          lg:grid-cols-2
+          lg:grid-cols-4
         "
       >
 
@@ -121,7 +121,8 @@ export default function SkillsSection() {
 
                 bg-white/[0.03]
 
-                p-8
+                p-4
+                sm:p-6
 
                 transition-all
                 duration-300
@@ -179,34 +180,19 @@ export default function SkillsSection() {
                 "
               >
 
-
-                <div
-                  className="
-                    h-3
-                    w-3
-
-                    rounded-full
-
-                    bg-cyan-400
-
-                    opacity-0
-                    scale-0
-
-                    transition-all
-                    duration-300
-
-                    group-hover:opacity-100
-                    group-hover:scale-100
-
-                    group-hover:shadow-[0_0_12px_rgba(34,211,238,.8)]
-                  "
-                />
-
-
                 <h3
                   className="
                     text-2xl
                     font-bold
+
+                    text-white/20
+
+                    transition-all
+                    duration-300
+
+                    group-hover:text-white
+
+                    group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,.55)]
                   "
                 >
                   {field}
@@ -226,7 +212,7 @@ export default function SkillsSection() {
               <div
                 className="
                   mt-8
-                  space-y-8
+                  space-y-1
                 "
               >
 
@@ -246,7 +232,7 @@ export default function SkillsSection() {
 
                         bg-black/10
 
-                        p-5
+                        p-4
 
                         transition-all
                         duration-300

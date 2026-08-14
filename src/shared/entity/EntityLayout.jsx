@@ -11,38 +11,33 @@ export default function EntityLayout({
   graph,
 }) {
   return (
-    <Container className="space-y-8">
+    <Container>
 
       {/* Hero */}
-      {hero}
-
+      <div className="mb-6">
+        {hero}
+      </div>
 
       {/* Main Entity Flow */}
-      <div className="space-y-8">
+      <div className="space-y-6">
 
-        {/* Quick information */}
+        {/* Quick Information */}
         {stats}
-
 
         {/* Connections */}
         {relationships}
 
-
         {/* Knowledge Sections */}
         {children}
-
 
         {/* Journey */}
         {timeline}
 
-
         {/* Additional Information */}
         {metadata}
 
-
         {/* Future Knowledge Graph */}
         {graph}
-
 
         {/* Actions */}
         {actions}

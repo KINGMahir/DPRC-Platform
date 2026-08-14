@@ -10,8 +10,7 @@ export default function EntityStats({
       className="
         grid
         gap-5
-
-        sm:grid-cols-2
+        grid-cols-2
         xl:grid-cols-4
       "
     >
@@ -27,7 +26,7 @@ export default function EntityStats({
           className="
             group
             relative
-            cursor-pointer
+            h-full
             overflow-hidden
 
             transition-all
@@ -68,6 +67,10 @@ export default function EntityStats({
           <div
             className="
               relative
+              flex
+              min-h-[150px]
+              h-full
+              flex-col
               space-y-3
             "
           >

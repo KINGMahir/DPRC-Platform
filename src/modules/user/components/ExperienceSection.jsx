@@ -18,7 +18,7 @@ export default function ExperienceSection() {
 
     <section
       className="
-        py-20
+        py-10
         select-none
       "
     >

@@ -136,11 +136,11 @@ export default function ProfilePage() {
           <AboutSection />
 
 
-          <div className="space-y-6">
+          <div className="space-y-8">
 
             <SkillsSection />
 
-            <EducationSection />
+            <EducationSection />   
 
           </div>
 

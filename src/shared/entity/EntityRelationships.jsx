@@ -21,16 +21,17 @@ export default function EntityRelationships({
 
       </div>
 
+
       <div className="flex flex-wrap gap-3">
 
         {items.map((item) => (
 
           <EntityRelationshipNode
-  key={item.id || item.name}
-  name={item.name}
-  icon={item.icon}
-  onClick={() => onSelect?.(item)}
-/>
+            key={item.id || item.name}
+            name={item.name}
+            icon={item.icon}
+            onClick={() => onSelect?.(item)}
+          />
 
         ))}
 
