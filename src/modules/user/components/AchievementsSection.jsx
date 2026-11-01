@@ -17,27 +17,51 @@ export default function AchievementsCard() {
         Achievements
       </h2>
 
-      <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid gap-5 md:grid-cols-2 justify-item-center">
 
         {userAchievements.map((achievement) => (
 
           <div
             key={achievement.id}
             className="
+              group
+              relative
+              w-[200px]
+              h-[160px]
               rounded-2xl
               border
               border-amber-300/30
               bg-gradient-to-br
               from-amber-500/10
               to-yellow-500/5
-              p-6
+              p-2
               transition-all
               duration-300
               hover:-translate-y-1
-              hover:border-amber-400/60
-              hover:shadow-[0_0_25px_rgba(251,191,36,.15)]
+              hover:border-white/60
+              hover:shadow-[0_0_35px_rgba(255,255,255,.18)]
             "
           >
+            <div
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+                rounded-2xl
+
+                bg-gradient-to-r
+                from-cyan-400/0
+                via-white/15
+                to fuchsia-400/0
+
+                opacity-0
+
+                transition-opacity
+                duration-500
+
+                group-hover:opacity-100
+              "
+            />
 
             <div className="flex items-start gap-4">
 

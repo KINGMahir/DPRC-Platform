@@ -122,6 +122,8 @@ research platforms.`,
     achievementIds: [
       "ACH-000001",
       "ACH-000002",
+      "ACH-000003",
+      "ACH-000004",
     ],
 
     // Activity
