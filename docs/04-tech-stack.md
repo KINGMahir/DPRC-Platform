@@ -1,208 +1,245 @@
-# DPRC Platform Technology Stack
+# DPRC Platform — Technology Stack
+
+> **Document Version:** 2.0  
+> **Status:** Planned Technology Stack  
+> **Project:** DPRC Platform
 
 ---
 
-# Overview
+# 1. Overview
 
-The DPRC Platform is built using modern, widely adopted and future-proof technologies. The selected stack emphasizes performance, scalability, maintainability and cross-platform development.
+The DPRC Platform uses modern, widely adopted and maintainable technologies to establish a reliable foundation for application development.
+
+The selected technology stack emphasizes performance, scalability, security, maintainability and cross-platform development.
+
+Technology selections may evolve as implementation requirements become clearer. The actual implementation and verified technical decisions take precedence over planned technologies described in this document.
 
 ---
 
-# Frontend
+# 2. Frontend
 
-## React
+## 2.1 React
 
-Purpose:
-Builds the user interface using reusable components.
+**Purpose:** Builds the user interface using reusable components.
 
-Why React?
+**Why React?**
 
 - Component-based architecture
 - Large ecosystem
-- Excellent performance
-- Easy to scale
+- Efficient UI rendering
+- Flexible application structure
 - Strong community support
+- Suitable for modular application development
 
----
+## 2.2 Vite
 
-## Vite
+**Purpose:** Development server and frontend build tool.
 
-Purpose:
-Development server and build tool.
+**Why Vite?**
 
-Why Vite?
-
-- Extremely fast startup
-- Fast hot module replacement
-- Modern tooling
+- Fast development server startup
+- Fast Hot Module Replacement (HMR)
+- Modern development tooling
 - Optimized production builds
+- Integration with modern frontend frameworks
 
----
+## 2.3 Tailwind CSS
 
-## Tailwind CSS
+**Purpose:** Provides utility-based styling for the application interface.
 
-Purpose:
-Application styling.
-
-Why Tailwind?
+**Why Tailwind CSS?**
 
 - Rapid UI development
-- Consistent design system
-- Responsive utilities
-- Easy maintenance
+- Consistent styling conventions
+- Responsive design utilities
+- Reusable design patterns
+- Maintainable styling workflows
 
----
+## 2.4 React Router
 
-## React Router
+**Purpose:** Manages navigation and routing within the React application.
 
-Purpose:
-Navigation between pages.
+**Why React Router?**
 
-Why React Router?
-
-- Industry standard
+- Declarative routing
 - Nested routing support
-- Protected routes
-- Scalable navigation
+- Route-based layouts
+- Navigation management
+- Support for protected application routes
 
 ---
 
-# Backend
+# 3. Backend
 
-## Node.js
+## 3.1 Node.js
 
-Purpose:
-JavaScript runtime for the server.
+**Purpose:** JavaScript runtime for server-side application development.
 
-Why Node.js?
+**Why Node.js?**
 
-- Same language as frontend
-- High performance
+- JavaScript across frontend and backend
+- Asynchronous I/O model
 - Large package ecosystem
-- Excellent for APIs
+- Suitable for API development
+- Broad community and tooling support
+
+## 3.2 Express.js
+
+**Purpose:** Backend web framework for building APIs and server-side application functionality.
+
+**Why Express.js?**
+
+- Lightweight framework
+- Flexible application structure
+- Middleware support
+- Established ecosystem
+- Suitable for REST API development
 
 ---
 
-## Express.js
+# 4. Database
 
-Purpose:
-Backend web framework.
+## 4.1 PostgreSQL
 
-Why Express?
+**Purpose:** Primary relational database for persistent platform data.
 
-- Lightweight
-- Flexible
-- Easy to learn
-- Well established
+**Why PostgreSQL?**
 
----
-
-# Database
-
-## PostgreSQL
-
-Purpose:
-Primary relational database.
-
-Why PostgreSQL?
-
-- Reliable
-- ACID compliant
-- Powerful SQL support
-- Excellent scalability
-- Open source
+- Reliable relational data management
+- ACID transaction support
+- Powerful SQL capabilities
+- Referential integrity and constraints
+- Advanced querying capabilities
+- Suitable for complex data relationships
+- Open-source database management system
 
 ---
 
-# Authentication
+# 5. Authentication and Authorization
 
-## JWT (JSON Web Token)
+## 5.1 JSON Web Token (JWT)
 
-Purpose:
-Secure user authentication.
+**Purpose:** Supports token-based authentication for API communication.
 
-Why JWT?
+**Why JWT?**
 
-- Stateless authentication
-- API friendly
-- Widely adopted
-- Easy integration
+- Suitable for token-based API authentication
+- Widely adopted standard
+- Supports stateless token validation
+- Integration with backend authentication workflows
+- Can support multiple client applications
 
----
+**Architectural consideration:**
 
-# Desktop
+JWT is an authentication mechanism, not a complete authentication or authorization system.
 
-## Tauri
-
-Purpose:
-Desktop application.
-
-Why Tauri?
-
-- Lightweight
-- Secure
-- Small application size
-- Uses the same frontend
+The backend must validate tokens, enforce permissions and apply appropriate security controls. Token expiration, renewal, revocation requirements and secure storage must be considered during implementation.
 
 ---
 
-# Mobile
+# 6. Desktop Application
 
-## React Native
+## 6.1 Tauri
 
-Purpose:
-Mobile applications.
+**Purpose:** Provides a framework for building desktop applications using web technologies.
 
-Why React Native?
+**Why Tauri?**
 
-- Shares JavaScript knowledge
-- Native performance
+- Reuses suitable frontend technologies
+- Lightweight application architecture
+- Access to native system capabilities
+- Cross-platform desktop support
+- Integration with web-based interfaces
+
+---
+
+# 7. Mobile Application
+
+## 7.1 React Native
+
+**Purpose:** Provides a framework for developing mobile applications.
+
+**Why React Native?**
+
+- JavaScript and React development model
+- Cross-platform mobile development
+- Access to native platform capabilities
 - Large ecosystem
-- Cross-platform support
+- Reusable development knowledge
 
 ---
 
-# Virtual Reality
+# 8. Virtual Reality and 3D Development
 
-## Unity
+## 8.1 Unity
 
-Purpose:
-VR and 3D applications.
+**Purpose:** Supports future VR, 3D visualization and immersive engineering applications.
 
-## C#
+## 8.2 C#
 
-Purpose:
-Programming language for Unity development.
+**Purpose:** Primary programming language for planned Unity development.
+
+**Potential application areas:**
+
+- Virtual engineering laboratories
+- Interactive 3D environments
+- Engineering visualization
+- Immersive learning experiences
+- Digital twin interfaces
+
+These technologies are intended for future specialized applications and are not part of the initial web application implementation.
 
 ---
 
-# Artificial Intelligence
+# 9. Artificial Intelligence
 
-Future technologies may include:
+Future AI capabilities may use suitable models, frameworks, APIs and supporting services.
 
-- LLM integration
+**Potential technologies and capabilities include:**
+
+- Large Language Model (LLM) integration
 - Recommendation systems
 - Semantic search
 - AI assistants
 - Knowledge retrieval
+- Document assistance
+
+Specific AI technologies will be selected according to functional requirements, infrastructure constraints, privacy considerations and operational costs.
 
 ---
 
-# Version Control
+# 10. Version Control
 
-## Git
+## 10.1 Git
 
-Purpose:
-Track project history and collaboration.
+**Purpose:** Tracks source-code history and supports development workflows.
+
+**Why Git?**
+
+- Version history
+- Branch-based development
+- Change tracking
+- Collaboration support
+- Integration with development and deployment workflows
 
 ---
 
-# Development Philosophy
+# 11. Development Philosophy
 
-Use technologies that are:
+Technology selections should prioritize:
 
-- Open source whenever possible
-- Well documented
-- Widely adopted
-- Easy to maintain
-- Suitable for long-term growth
+- Well-maintained technologies
+- Open standards and interoperability
+- Suitable open-source technologies and tools where practical
+- Clear documentation
+- Established adoption and ecosystem support
+- Security and reliability
+- Long-term maintainability
+- Compatibility with the platform architecture
+- Practical performance and resource requirements
+- Sustainable development and operational costs
+
+Technology should be selected according to its suitability for the platform's requirements rather than popularity alone.
+
+The use of open-source technologies does not determine the licensing or distribution model of the DPRC Platform itself.
+

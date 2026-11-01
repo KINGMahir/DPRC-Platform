@@ -1,74 +1,83 @@
 # DPRC Platform — Master Architecture
 
-> **Version:** 2.0
-> **Status:** Living Document
+> **Version:** 2.1  
+> **Status:** Living Document  
 > **Purpose:** Central architectural reference for the DPRC Platform.
 
 ---
 
 # Overview
 
-The DPRC Platform is a collaborative engineering and research operating system.
+The DPRC Platform is a collaborative applied engineering, research, education and innovation platform being developed for the Dhaka Polytechnic Research Club (DPRC).
 
-Its purpose is to connect students, engineers, researchers, educators, organizations, laboratories, industries, innovators and communities into one unified engineering ecosystem.
+Its purpose is to provide a unified digital environment where students, engineers, researchers, educators and innovators can collaborate, develop projects, conduct research, publish knowledge, organize activities and explore engineering technologies.
 
-Unlike a traditional website, the DPRC Platform is designed as long-term digital infrastructure where people collaborate, build projects, publish research, organize communities, preserve engineering knowledge and create new innovations.
+Unlike a traditional website, the DPRC Platform is designed as long-term digital infrastructure for engineering education, practical development, applied research, knowledge preservation and innovation.
 
-This document defines the master architecture, platform philosophy, design principles, and long-term direction of the entire ecosystem.
+The platform is intended to evolve into a connected engineering ecosystem supporting web, desktop, mobile, virtual reality and artificial intelligence technologies.
+
+This document defines the master architecture, platform philosophy, design principles, conceptual data model and long-term technical direction of the DPRC Platform.
 
 ---
 
 # Mission
 
-To build an open, scalable, collaborative engineering and research platform that enables innovation through knowledge sharing, teamwork and modern digital technologies.
+To develop a scalable, secure and interconnected engineering platform that supports applied engineering research, practical learning, collaboration, innovation and knowledge sharing within the DPRC ecosystem.
 
 ---
 
 # Vision
 
-Create the world's leading engineering collaboration platform where every user, project, publication, organization, technology, laboratory and innovation is interconnected.
+To establish a comprehensive digital engineering ecosystem where students, educators, researchers and innovators can develop practical engineering knowledge, collaborate on meaningful projects, conduct research and contribute to technological advancement.
 
-The platform should support people throughout their academic, professional and research careers while continuously expanding as a living engineering knowledge ecosystem.
+The platform should support users throughout their academic, professional and research journeys while continuously evolving as an interconnected engineering knowledge ecosystem.
 
 ---
 
 # Core Principles
 
-* Collaboration First
-* Engineering Focus
-* Research Driven
-* Knowledge Preservation
-* Open Architecture
-* Modular Design
-* Scalability
-* Security
-* Accessibility
-* Future-Proof Design
-* Long-Term Sustainability
+- Applied Engineering First
+- Collaboration First
+- Research Driven
+- Practical Learning
+- Knowledge Preservation
+- Open Architecture
+- Modular Design
+- Interconnected Data
+- Scalability
+- Security
+- Accessibility
+- Maintainability
+- Long-Term Sustainability
+- Future-Oriented Development
+
+**Important distinction:** Open architecture refers to modularity, interoperability and extensibility. It does not mean that the software is open source.
 
 ---
 
 # Platform Philosophy
 
-The DPRC Platform is **not** a collection of webpages.
+The DPRC Platform is not a collection of isolated webpages.
 
 It is a connected engineering ecosystem.
 
-Everything inside the platform is an entity.
+Everything inside the platform is represented through meaningful entities, data and relationships.
 
-Every entity is connected to other entities.
+Every entity can connect to other relevant entities.
 
-Every page is simply a visual representation of an entity.
+Every page, section and component is a visual representation of platform data and its relationships.
 
-Navigation is based on relationships rather than isolated menus.
+Navigation should be based on meaningful connections rather than isolated menus and disconnected pages.
+
+The platform should encourage users to discover related people, skills, projects, research, technologies and engineering resources naturally.
 
 ---
 
-# The Everything is Connected Principle
+# The Everything Is Connected Principle
 
-Nothing should exist in isolation.
+Nothing should exist in isolation when meaningful relationships are possible.
 
-Every object inside the platform should be discoverable through multiple relationships.
+Every major object inside the platform should be discoverable through multiple relevant relationships.
 
 Example:
 
@@ -80,65 +89,75 @@ User
 ├── Organizations
 ├── Publications
 ├── Events
-├── Badges
+├── Achievements
 ├── Technologies
 ├── Courses
 └── Institutes
 ```
 
-Every relationship creates another navigation path.
+Every relationship creates another potential navigation path.
 
 Example:
 
 ```text
 User
- ↓
+  ↓
 Skill
- ↓
-All Users with that Skill
- ↓
+  ↓
+Users with that Skill
+  ↓
 Projects using that Skill
- ↓
-Organizations requiring that Skill
- ↓
+  ↓
 Research Papers using that Skill
- ↓
-Technology Ecosystem
+  ↓
+Related Technologies
+  ↓
+Engineering Projects
 ```
 
-Navigation never reaches a dead end.
+Navigation should provide meaningful discovery opportunities rather than artificial navigation loops.
+
+A destination may be a natural endpoint when no additional relevant relationship exists.
 
 ---
 
 # Knowledge Graph Philosophy
 
-The platform is designed as a knowledge graph.
+The platform is conceptually designed around an interconnected knowledge graph.
 
-Instead of isolated tables and pages, entities form a continuously expanding network.
+Instead of treating every module as an isolated collection of pages, the platform connects its entities through structured relationships.
+
+Example:
 
 ```text
 User
 │
 ├── Skill
-│      ├── Projects
-│      ├── Courses
-│      ├── Users
-│      └── Organizations
+│     ├── Projects
+│     ├── Courses
+│     ├── Users
+│     └── Technologies
 │
 ├── Publication
 │
-├── Organization
-│
 ├── Project
+│
+├── Organization
 │
 └── Event
 ```
 
-Every entity can connect with every other entity where relationships exist.
+Every entity can connect to other entities wherever meaningful relationships exist.
+
+The knowledge graph is a long-term architectural concept. Its implementation may evolve gradually through relational database structures, APIs, search services and relationship models.
+
+A dedicated graph database is not a mandatory initial requirement.
 
 ---
 
 # Platform Layers
+
+The platform follows a layered architecture designed to separate user interfaces, application functionality, business rules and data management.
 
 ```text
 Client Applications
@@ -147,29 +166,63 @@ Client Applications
 ├── Desktop
 ├── Mobile
 ├── Tablet
-└── Future Operating System
+└── Future Immersive Interfaces
         │
         ▼
 Presentation Layer
         │
         ▼
-Platform Modules
+Application / Module Layer
         │
         ▼
-Shared Services
+Shared Platform Services
         │
         ▼
 Business Logic
         │
         ▼
-Identity System
+Identity and Access Management
         │
         ▼
-Knowledge Graph
+Data Access Layer
         │
         ▼
-Database
+Database and Storage
 ```
+
+Each layer has a defined responsibility.
+
+### Client Applications
+
+Provide platform access through different devices and environments.
+
+### Presentation Layer
+
+Manages interface rendering, navigation, layouts, components and user interactions.
+
+### Application / Module Layer
+
+Contains the platform's functional modules.
+
+### Shared Platform Services
+
+Provides reusable services such as authentication, notifications, file handling, search and messaging.
+
+### Business Logic
+
+Enforces application workflows, validation, permissions and business rules.
+
+### Identity and Access Management
+
+Handles user identities, authentication, authorization and access control.
+
+### Data Access Layer
+
+Manages communication between business logic and persistent data storage.
+
+### Database and Storage
+
+Stores structured information, files, documents and other platform resources.
 
 ---
 
@@ -179,84 +232,85 @@ The platform revolves around interconnected entities rather than isolated module
 
 ## User
 
-Represents every individual.
+Represents an individual using the platform.
+
+Examples include students, teachers, researchers, engineers and other authorized participants.
 
 Connected to:
 
-* Skills
-* Organizations
-* Projects
-* Publications
-* Events
-* Achievements
-* Technologies
-* Badges
-* Institutes
-
----
+- Skills
+- Projects
+- Publications
+- Events
+- Achievements
+- Technologies
+- Courses
+- Organizations
+- Institutes
 
 ## Organization
 
-Represents collaborative groups.
+Represents a recognized organizational entity within the platform.
 
 Examples:
 
-* Universities
-* Research Clubs
-* Companies
-* Startups
-* Laboratories
-* NGOs
+- DPRC
+- Research Clubs
+- Departments
+- Laboratories
+- Companies
+- Startups
+- Academic or technical institutions
 
 Connected to:
 
-* Members
-* Departments
-* Projects
-* Publications
-* Events
-* Technologies
-
----
+- Members
+- Departments
+- Projects
+- Publications
+- Events
+- Technologies
+- Resources
 
 ## Project
 
-The primary collaboration workspace.
+Represents an engineering, research, innovation or development initiative.
+
+A project acts as a collaboration workspace.
 
 Connected to:
 
-* Users
-* Organizations
-* Skills
-* Technologies
-* Publications
-* Files
-* Tasks
-* AI
-* Discussions
-
----
+- Users
+- Organizations
+- Skills
+- Technologies
+- Publications
+- Files
+- Tasks
+- Discussions
+- Research activities
 
 ## Publication
 
-Research outputs including:
+Represents documented research and technical knowledge.
 
-* Papers
-* Reports
-* Documentation
-* Conference Articles
-* Books
-* Patents
+Examples:
+
+- Research Papers
+- Technical Reports
+- Project Documentation
+- Conference Articles
+- Books
+- Technical Guides
 
 Connected to:
 
-* Authors
-* Organizations
-* Projects
-* Skills
-* Technologies
-
----
+- Authors
+- Organizations
+- Projects
+- Skills
+- Technologies
+- Research Activities
 
 ## Skill
 
@@ -264,334 +318,449 @@ Represents technical and professional competencies.
 
 Examples:
 
-* React
-* AI
-* Robotics
-* PCB Design
-* CAD
-* Python
+- React
+- Artificial Intelligence
+- Robotics
+- PCB Design
+- CAD
+- Python
+- Electrical Power Systems
+- Embedded Systems
 
 Connected to:
 
-* Users
-* Courses
-* Organizations
-* Projects
-* Research
-
----
+- Users
+- Courses
+- Projects
+- Technologies
+- Research Activities
 
 ## Institute
 
-Educational institutions.
+Represents educational institutions.
 
 Connected to:
 
-* Students
-* Alumni
-* Faculty
-* Organizations
-* Research
-* Publications
-
----
+- Students
+- Alumni
+- Faculty
+- Organizations
+- Research
+- Publications
+- Projects
 
 ## Technology
 
-Represents tools and technologies.
+Represents engineering tools, technologies, platforms and technical systems.
 
 Examples:
 
-* Arduino
-* Raspberry Pi
-* TensorFlow
-* React
-* Blender
+- Arduino
+- Raspberry Pi
+- TensorFlow
+- React
+- Blender
+- MATLAB
+- CAD Software
 
 Connected to:
 
-* Projects
-* Users
-* Organizations
-* Publications
+- Projects
+- Users
+- Organizations
+- Publications
+- Research Activities
+
+## Event
+
+Represents organized activities.
+
+Examples:
+
+- Workshops
+- Seminars
+- Competitions
+- Training Programs
+- Research Presentations
+- Engineering Exhibitions
+
+Connected to:
+
+- Participants
+- Organizers
+- Organizations
+- Projects
+- Skills
+- Publications
 
 ---
 
 # Identity System
 
-Every major resource has three identities.
+Every major platform resource should have a consistent identity system.
 
-* Internal ID
-* Public Identifier
-* Official Platform Identifier
+The identity system may contain:
+
+- Internal ID
+- Public Identifier
+- Official Platform Identifier
 
 Examples:
 
 ```text
 User
 
+Internal ID:
 USR-000001
+
+Public Identifier:
 @mahir
+
+Official Identifier:
 DPRC-BD-ENG-000001
+
 
 Project
 
+Internal ID:
 PJT-000001
+
+Public Identifier:
 smart-grid-monitoring
+
+Official Identifier:
 DPRC-PRJ-2026-000001
+
 
 Organization
 
+Internal ID:
 ORG-000001
+
+Public Identifier:
 dprc
+
+Official Identifier:
 DPRC-BD-ORG-000001
 ```
+
+The exact identifier format may evolve as the database and identity services mature.
+
+Internal identifiers must remain stable and independent of public usernames or display names.
 
 ---
 
 # Platform Modules
 
-Current Modules
+The platform follows a modular architecture.
 
-* Homepage
-* User System
-* Organization System
-* Project System
-* Research Hub
+## Foundation Modules
 
-Upcoming Modules
+- Homepage
+- Authentication
+- User System
+- Organization System
+- Research Hub
+- Project System
 
-* Publication System
-* Skill System
-* Institute System
-* Badge System
-* Technology System
-* Event System
-* Collaboration System
-* Messaging
-* Notifications
-* Funding
-* Competitions
-* Digital Library
-* Marketplace
-* AI Platform
+## Upcoming Modules
 
-Each module remains independently maintainable while integrating with every other module.
+- Publication System
+- Skill System
+- Institute System
+- Badge and Achievement System
+- Technology System
+- Event System
+- Collaboration System
+- Messaging
+- Notifications
+- Funding Management
+- Competitions
+- Digital Library
+- Marketplace
+- AI Platform
+- Engineering Laboratory
+
+Each module should remain independently maintainable while integrating with shared platform services and relevant entities.
+
+Modules should not duplicate functionality that belongs to shared services.
+
+---
+
+# Applied Engineering and Research Philosophy
+
+Applied engineering is one of the fundamental purposes of the DPRC Platform.
+
+The platform should connect theoretical knowledge with practical implementation and real-world engineering problems.
+
+Its architecture should support:
+
+- Engineering project development
+- Applied research
+- Prototyping
+- Experimentation
+- Technical testing and validation
+- Engineering documentation
+- Simulation
+- Laboratory activities
+- Digital twin environments
+- Interdisciplinary collaboration
+- Technical innovation
+- Industry-oriented problem solving
+
+The platform should gradually support the complete engineering development lifecycle:
+
+```text
+Problem Identification
+        ↓
+Research and Investigation
+        ↓
+Concept Development
+        ↓
+Engineering Design
+        ↓
+Prototyping
+        ↓
+Experimentation
+        ↓
+Testing and Validation
+        ↓
+Documentation
+        ↓
+Publication and Knowledge Sharing
+        ↓
+Further Development
+```
+
+These activities should be supported through interconnected platform modules rather than independent disconnected tools.
+
+---
+
+# Identity and Access Management
+
+The platform requires a centralized identity and access management system.
+
+Its responsibilities include:
+
+- User registration
+- Authentication
+- Authorization
+- Role management
+- Permission management
+- Account status
+- Session management
+- Security monitoring
+
+Access control should be enforced through application services and backend business logic, not only through frontend interface restrictions.
+
+Different users should receive permissions appropriate to their roles and responsibilities.
+
+The access-control architecture should remain flexible enough to support future platform requirements.
 
 ---
 
 # Design Philosophy
 
-Every page follows the same architectural pattern.
+Every page should follow a consistent architectural pattern.
 
 ```text
 Page
-
-↓
-
+ │
+ ▼
 Sections
-
-↓
-
+ │
+ ▼
 Components
-
-↓
-
+ │
+ ▼
 Entities
-
-↓
-
+ │
+ ▼
 Relationships
 ```
 
-Pages should never directly own data.
+Pages should not independently own business data.
 
-Entities own data.
+Entities and application services manage the underlying data and operations.
 
-Pages visualize relationships.
+Pages visualize information and relationships.
+
+Components should remain reusable, maintainable and consistent across modules.
 
 ---
 
 # UI Philosophy
 
-The interface should feel like a futuristic engineering operating system rather than a traditional website.
+The interface should feel like a modern engineering workspace rather than a conventional informational website.
 
 Design goals:
 
-* Layered interface
-* Glass surfaces
-* Dynamic backgrounds
-* Motion-based navigation
-* Interactive data visualization
-* Relationship-driven exploration
-* Smooth transitions
-* Connected information
-* Spatial organization
-* Scalable component system
+- Layered interface
+- Glass surfaces where appropriate
+- Dynamic backgrounds
+- Motion-based interactions
+- Interactive data visualization
+- Relationship-driven exploration
+- Smooth transitions
+- Connected information
+- Spatial organization
+- Responsive layouts
+- Scalable component system
+- Consistent design language
 
-Every card should act as a gateway into another part of the ecosystem.
+Every interactive element should have a meaningful purpose.
 
-Nothing is decorative.
+Cards, profiles, statistics, project previews and other interface elements should provide relevant navigation or interaction where appropriate.
 
-Everything is interactive.
+Visual effects must not compromise usability, accessibility, performance or readability.
+
+Nothing should be decorative without a clear design purpose.
 
 ---
 
 # Navigation Philosophy
 
-Users should never reach a dead end.
-
-Every visible object should provide meaningful navigation.
+Users should be able to discover related information through meaningful connections.
 
 Examples:
 
+### Skill Navigation
+
+```text
 Click Skill
-
-↓
-
+    ↓
 Skill Explorer
-
-↓
-
-Users
-
-↓
-
+    ↓
+Users with that Skill
+    ↓
 Projects
-
-↓
-
+    ↓
 Research
+    ↓
+Related Technologies
+```
 
-↓
+### Institute Navigation
 
-Organizations
-
+```text
 Click Institute
-
-↓
-
+    ↓
 Institute Profile
-
-↓
-
+    ↓
 Departments
-
-↓
-
+    ↓
 Researchers
-
-↓
-
+    ↓
 Projects
-
-↓
-
+    ↓
 Publications
-
-↓
-
+    ↓
 Events
+```
 
+### Achievement Navigation
+
+```text
 Click Badge
-
-↓
-
+    ↓
 Badge Details
-
-↓
-
+    ↓
 Requirements
-
-↓
-
+    ↓
 Recipients
-
-↓
-
+    ↓
 Statistics
-
-↓
-
+    ↓
 Related Skills
+```
 
-Navigation should naturally encourage exploration.
+Navigation should encourage exploration while remaining predictable and understandable.
 
 ---
 
 # Development Strategy
 
-The platform is developed in phases.
+The platform will be developed incrementally.
 
-## Phase 1
+## Phase 1 — Foundation
 
-Foundation
+- Documentation
+- Master Architecture
+- Project Structure
+- Homepage
+- Initial Research Hub
+- UI Foundation
 
-* Documentation
-* Architecture
-* Homepage
-* Research Hub
+## Phase 2 — Core Platform
 
-## Phase 2
+- User System
+- Organization System
+- Project System
+- Research Management
 
-Core Platform
+## Phase 3 — Backend Infrastructure
 
-* User System
-* Organization System
-* Project System
+- Database
+- APIs
+- Authentication
+- Authorization
+- Permissions
+- Data Validation
 
-## Phase 3
+## Phase 4 — Shared Platform Services
 
-Backend
+- Search
+- Notifications
+- Messaging
+- File Management
+- Collaboration
+- Analytics
 
-* Database
-* APIs
-* Authentication
-* Permissions
+## Phase 5 — Artificial Intelligence
 
-## Phase 4
+- Recommendations
+- Engineering Assistant
+- Research Discovery
+- Intelligent Search
+- Workflow Assistance
+- Automation
 
-Platform Services
+## Phase 6 — Cross-Platform Development
 
-* Search
-* Notifications
-* Messaging
-* Collaboration
+- Desktop
+- Mobile
+- Tablet
+- Responsive Experience
 
-## Phase 5
+## Phase 7 — Advanced Engineering Capabilities
 
-Artificial Intelligence
+- Engineering Simulations
+- Virtual Laboratories
+- Digital Twins
+- Immersive Learning
+- VR Engineering Environments
 
-* Recommendations
-* Engineering Assistant
-* Research Discovery
-* Recommendations
-* Automation
-
-## Phase 6
-
-Cross Platform
-
-* Desktop
-* Mobile
-* Tablet
-
-## Phase 7
-
-Future DPRC Operating System
+The sequence may be adjusted according to technical feasibility, available resources and project priorities.
 
 ---
 
 # Repository Structure
 
+The repository follows a modular organization.
+
 ```text
-docs/
-management/
-src/
-public/
+DPRC-Platform/
+│
+├── docs/
+├── management/
+├── public/
+├── src/
+├── package.json
+├── vite.config.js
+└── README.md
 ```
 
-Frontend structure:
+Conceptual frontend structure:
 
 ```text
 src/
@@ -608,38 +777,57 @@ src/
 └── styles/
 ```
 
+The actual implementation structure may evolve as the software grows.
+
+The folder structure should support separation of concerns, module independence, reusable services and maintainable code.
+
 ---
 
 # Documentation Index
 
 ## Foundation
 
-* 01 Vision
-* 02 Roadmap
-* 03 System Architecture
-* 04 Tech Stack
-* 05 Folder Structure
+- 00 Master Architecture
+- 01 Vision
+- 02 Roadmap
+- 03 System Architecture
+- 04 Tech Stack
+- 05 Folder Structure
 
 ## Platform
 
-* 06 Platform Vision
-* 07 Data Model
-* 08 System Workflow
-* 09 Research Hub Plan
+- 06 Product Philosophy
+- 07 Data Model
+- 08 System Workflow
+- 09 Research Hub Plan
 
 ## Core Systems
 
-* 10 User System
-* 11 Platform Architecture
-* 12 Organization System
-* 13 Project System
+- 10 User System
+- 11 Platform Architecture
+- 12 Organization System
+- 13 Project System
 
 ## Future
 
-* 14 Design Language
-* 15 Entity Model
+- 14 Design Language
+- 15 Entity Model
 
 Additional documents will follow the same numbering convention as the platform expands.
+
+---
+
+# Repository Visibility and Software Model
+
+The DPRC Platform repository may be publicly visible for transparency, documentation, development visibility and collaboration.
+
+However, public repository visibility does not make the software open source.
+
+The platform is intended to remain proprietary and closed-source unless its authorized rights holder establishes otherwise through a formal license.
+
+Public visibility does not automatically grant permission to copy, modify, redistribute, sublicense or commercially exploit the software.
+
+Sensitive information, credentials, private user data, production secrets and confidential infrastructure configuration must remain outside the public repository.
 
 ---
 
@@ -647,6 +835,11 @@ Additional documents will follow the same numbering convention as the platform e
 
 The DPRC Platform is not intended to become merely another engineering website.
 
-Its objective is to become a complete engineering operating system and global knowledge ecosystem where every user, organization, project, publication, technology and innovation exists as part of one continuously evolving network.
+Its objective is to evolve into a comprehensive engineering operating system and interconnected knowledge ecosystem where users, projects, publications, technologies, research activities and innovations form part of one continuously evolving network.
 
-Every future feature, API, database table, component, page and service must align with the architectural principles defined in this document to ensure consistency, interoperability, maintainability and scalability for decades of future development.
+The platform should provide the digital infrastructure necessary to support practical engineering education, applied research, collaboration, innovation and technological development.
+
+Every future feature, API, database table, component, page and service should align with the architectural principles defined in this document.
+
+Consistency, interoperability, maintainability, security and scalability must guide the platform's development for the long term.
+

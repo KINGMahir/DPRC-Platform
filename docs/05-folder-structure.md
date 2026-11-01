@@ -1,70 +1,149 @@
-# DPRC Platform Folder Structure
+# DPRC Platform — Folder Structure
+
+> **Document Version:** 2.0  
+> **Status:** Planned Project Structure  
+> **Project:** DPRC Platform
 
 ---
 
-# Purpose
+# 1. Purpose
 
-The project follows a feature-oriented, scalable folder structure. Every directory has a clear responsibility, making the platform easier to maintain and expand as new features are added.
+The DPRC Platform follows a feature-oriented and modular folder structure designed to support maintainability, scalability and clear separation of responsibilities.
+
+Each directory should have a defined purpose. Related functionality should remain grouped together, while shared components and application-wide services should be organized separately.
+
+The structure should remain simple during early development and evolve as the application grows.
+
+This document describes the intended frontend project structure. Backend and additional client application structures may be defined separately when those components are introduced.
 
 ---
 
-# Root Structure
+# 2. Root Directory Structure
 
-```
+The following structure represents the planned repository organization.
+
+```text
 dprc-platform/
 │
 ├── docs/
+│   ├── 00-master_architecture.md
+│   ├── 01-vision.md
+│   ├── 02-roadmap.md
+│   ├── 03-architecture.md
+│   ├── 04-tech_stack.md
+│   └── 05-folder-structure.md
+│
 ├── management/
+│
 ├── public/
+│
 ├── src/
+│
+├── .gitignore
+├── index.html
 ├── package.json
+├── package-lock.json
 ├── README.md
+├── vite.config.js
 └── ...
 ```
 
+**Note:** This is a conceptual root structure. The actual repository may contain additional configuration, testing, build and development files.
+
 ---
 
-# Source Structure
+# 3. Frontend Source Structure
 
-```
+The following is the intended structure for the React frontend.
+
+```text
 src/
 │
 ├── app/
+│   ├── providers/
+│   ├── config/
+│   └── ...
+│
 ├── assets/
+│
 ├── components/
+│   ├── ui/
+│   └── shared/
+│
 ├── features/
+│   ├── auth/
+│   ├── members/
+│   ├── research/
+│   ├── projects/
+│   ├── publications/
+│   └── events/
+│
 ├── hooks/
+│
 ├── layouts/
+│
 ├── pages/
+│
 ├── routes/
+│
 ├── services/
+│   └── api/
+│
 ├── styles/
+│
 ├── utils/
-├── main.jsx
-└── App.jsx
+│
+├── App.jsx
+└── main.jsx
 ```
 
----
-
-# Folder Responsibilities
-
-## app/
-
-Application configuration, providers and global initialization.
+The structure may be adjusted as actual implementation requirements become clearer.
 
 ---
 
-## assets/
+# 4. Folder Responsibilities
 
-Static assets such as images, icons, logos and fonts.
+## 4.1 app/
 
----
+Contains application-level configuration and initialization.
 
-## components/
+**Responsibilities:**
 
-Reusable UI components shared throughout the application.
+- Application configuration
+- Global providers
+- Application initialization
+- Shared application setup
 
 Examples:
+
+- Theme provider
+- Authentication provider
+- Global configuration
+
+## 4.2 assets/
+
+Contains static assets used by the frontend.
+
+**Examples:**
+
+- Images
+- Icons
+- Logos
+- Fonts
+- Illustrations
+
+Assets should be organized into subdirectories when necessary.
+
+## 4.3 components/
+
+Contains reusable interface components shared across multiple parts of the application.
+
+**Suggested subdirectories:**
+
+- `ui/` — General-purpose interface components.
+- `shared/` — Application-specific components shared by multiple features.
+
+**Examples:**
 
 - Button
 - Card
@@ -73,13 +152,15 @@ Examples:
 - Navbar
 - Footer
 
----
+Feature-specific components should generally remain inside their respective feature directories.
 
-## features/
+## 4.4 features/
 
-Business features organized into independent modules.
+Contains feature-oriented application modules.
 
-Examples:
+Each feature should group together the code directly associated with its functionality.
+
+**Examples:**
 
 - Authentication
 - Members
@@ -88,109 +169,199 @@ Examples:
 - Publications
 - Events
 
-Each feature may contain:
+A feature may contain:
 
 - Components
 - Pages
 - Hooks
 - Services
-- Types
+- Feature-specific utilities
+- Types, when applicable
 
----
+Example:
 
-## hooks/
+```text
+features/
+│
+└── research/
+    ├── components/
+    ├── hooks/
+    ├── pages/
+    ├── services/
+    └── ...
+```
 
-Reusable custom React hooks.
+Not every feature needs every subdirectory. Create folders when the feature actually requires them.
 
----
+## 4.5 hooks/
 
-## layouts/
+Contains reusable custom React hooks shared across different features.
 
-Application layouts.
+Feature-specific hooks should generally remain inside their corresponding feature directories.
 
-Examples:
+**Examples:**
+
+- `useTheme.js`
+- `useDebounce.js`
+- `useMediaQuery.js`
+
+## 4.6 layouts/
+
+Contains reusable application-level layouts.
+
+**Examples:**
 
 - MainLayout
 - DashboardLayout
 - AuthLayout
 
----
+Layouts define shared page structures and may include navigation, headers, sidebars and other common interface elements.
 
-## pages/
+## 4.7 pages/
 
-Top-level pages mapped to routes.
+Contains top-level pages that are not exclusively owned by a particular feature.
 
-Examples:
+**Examples:**
 
 - Home
 - About
-- Research
 - Contact
 - NotFound
 
----
+Pages closely associated with a specific feature should generally be organized inside that feature.
 
-## routes/
+## 4.8 routes/
 
-Routing configuration and protected routes.
+Contains application routing configuration.
 
----
+**Responsibilities:**
 
-## services/
+- Route definitions
+- Route grouping
+- Layout-based routing
+- Protected route integration
+- Navigation configuration
 
-Communication with backend APIs.
+Route protection must work with backend authorization rather than relying only on frontend checks.
 
-Examples:
+## 4.9 services/
 
-- Authentication API
-- Member API
-- Research API
+Contains shared application services and communication interfaces.
 
----
+**Suggested subdirectories:**
 
-## styles/
+- `api/` — API client and shared request configuration.
 
-Global styles, theme configuration and design tokens.
+Feature-specific API operations should generally remain inside their respective feature directories.
 
----
+## 4.10 styles/
 
-## utils/
+Contains application-wide styling and design configuration.
 
-Utility functions and helper methods.
+**Examples:**
 
----
+- Global CSS
+- Theme styles
+- Design tokens
+- Shared styling utilities
 
-# Organization Principle
+Component-specific styling should remain close to the relevant component when appropriate.
 
-Every file should have a single responsibility.
+## 4.11 utils/
 
-When a feature grows too large, create a dedicated folder rather than placing unrelated files together.
+Contains general-purpose utility functions that can be reused across different parts of the application.
 
----
+**Examples:**
 
-# Naming Convention
+- Date formatting
+- String formatting
+- Validation helpers
+- Data transformation utilities
 
-- Components → PascalCase
-- Pages → PascalCase
-- Hooks → camelCase beginning with `use`
-- Utilities → camelCase
-- Files → descriptive names
-
-Examples:
-
-```
-ResearchCard.jsx
-MainLayout.jsx
-useAuth.js
-formatDate.js
-```
+Feature-specific helper functions should remain within their feature directories.
 
 ---
 
-# Guiding Philosophy
+# 5. Organization Principles
 
-Keep the structure simple.
+The folder structure should follow these principles:
 
-Organize by responsibility rather than convenience.
+## 5.1 Single Responsibility
 
-A clean folder structure makes the project easier to understand, maintain and extend as new contributors join.
+Each file and module should have a clear responsibility.
+
+Unrelated functionality should not be combined merely for convenience.
+
+## 5.2 Feature Ownership
+
+Code that belongs exclusively to a feature should generally remain inside that feature's directory.
+
+This helps keep related functionality together and reduces unnecessary dependencies.
+
+## 5.3 Shared Functionality
+
+Components, hooks and services used across multiple features should be placed in appropriate shared directories.
+
+Avoid duplicating common functionality across features.
+
+## 5.4 Controlled Growth
+
+Do not create unnecessary folders or abstraction layers before they are needed.
+
+When a feature becomes larger, introduce additional internal organization based on its actual requirements.
+
+## 5.5 Clear Dependencies
+
+Application-wide components and shared services should avoid unnecessary dependencies on individual feature implementations.
+
+Feature modules should use clearly defined interfaces when interacting with shared application functionality.
+
+---
+
+# 6. Naming Conventions
+
+Consistent naming makes the project easier to navigate and maintain.
+
+| Item | Convention | Example |
+|---|---|---|
+| React components | PascalCase | `ResearchCard.jsx` |
+| Layouts | PascalCase | `MainLayout.jsx` |
+| Custom hooks | camelCase with `use` prefix | `useAuth.js` |
+| Utility functions | camelCase | `formatDate.js` |
+| Variables | camelCase | `currentUser` |
+| Constants | UPPER_SNAKE_CASE where appropriate | `API_BASE_URL` |
+| Feature directories | lowercase | `research/` |
+| Shared directories | lowercase | `components/` |
+
+File names should be descriptive and consistent with the responsibility of their contents.
+
+---
+
+# 7. Future Structure Expansion
+
+As the platform evolves, additional source directories may be introduced for other application environments and infrastructure.
+
+Potential future areas include:
+
+- Backend application
+- Database migrations and schema management
+- Desktop application
+- Mobile application
+- AI integration services
+- Testing infrastructure
+- Deployment and automation configuration
+
+These should be introduced when their corresponding implementation stages begin.
+
+They should not be added to the active source structure merely because they appear in the long-term roadmap.
+
+---
+
+# 8. Guiding Philosophy
+
+**Keep the structure simple. Organize by responsibility. Group by feature. Reuse shared functionality.**
+
+A clean folder structure should make the codebase easier to understand, test, maintain and extend.
+
+The objective is to establish an organization that supports the platform's current development needs without creating unnecessary complexity or restricting future growth.
+

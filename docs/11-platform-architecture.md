@@ -1,178 +1,227 @@
 # Platform Architecture
 
-> **Version:** 2.0
-> **Status:** Living Document
+> **Version:** 2.1  
+> **Status:** Living Document  
+> **Document Type:** Architectural Reference
 
 ---
 
-# Overview
+## 1. Overview
 
-The DPRC Platform is a collaborative engineering and research operating system designed to connect people, organizations, projects, publications, laboratories, technologies, equipment, datasets and engineering knowledge into one continuously evolving ecosystem.
+The DPRC Platform is a collaborative engineering, research and knowledge-management platform designed to connect people, organizations, projects, publications, laboratories, technologies, equipment, datasets and engineering knowledge within one integrated digital environment.
 
-Unlike conventional websites where pages exist independently, every entity within the DPRC Platform is interconnected through relationships. Navigation is not page-centric but knowledge-centric, allowing users to explore information naturally across the platform.
+Rather than treating every page or feature as an independent destination, the platform uses an entity-centric architecture. Its information is organized around identifiable entities and the relationships between them.
 
-The architecture is designed to remain scalable across web, desktop, mobile, tablet and future platform implementations without changing its underlying principles.
+This approach supports connected discovery, contextual navigation, collaboration and structured information management.
 
----
+The architecture is intended to support web, desktop and mobile applications while maintaining consistent underlying data models, business logic, identity management and access-control principles.
 
-# Platform Vision
-
-The platform exists to remove barriers between engineering education, research, innovation, industry and collaboration.
-
-Every user, organization, project, publication, technology, laboratory, institute and engineering asset becomes part of one unified engineering graph.
+The platform is being developed incrementally. Architectural capabilities described as future enhancements should not be interpreted as already implemented.
 
 ---
 
-# Core Principles
+## 2. Platform Vision
 
-The platform follows eight architectural principles.
+The platform aims to reduce barriers between engineering education, applied research, innovation, industry collaboration and technical knowledge-sharing.
 
-* Identity First
-* Entity-Centric Design
-* Universal Connectivity
-* Collaboration by Default
-* Modular Architecture
-* Scalability
-* Intelligent Discovery
-* Future-Proof Design
+Users should be able to discover relevant people, projects, technologies, publications, laboratories and resources through meaningful relationships between platform entities.
+
+The long-term vision is to establish an interconnected engineering knowledge ecosystem that supports research activities, practical engineering work, collaboration and continuous learning.
 
 ---
 
-# Platform Layers
+## 3. Core Architectural Principles
+
+The architecture follows eight principles:
+
+1. **Identity First** — Every managed entity must have a reliable way to be identified.
+2. **Entity-Centric Design** — Information is organized around meaningful entities rather than isolated pages.
+3. **Connected Information** — Relationships between entities should be represented explicitly.
+4. **Collaboration by Design** — The data model should support collaboration among users, teams and organizations.
+5. **Modular Architecture** — Features should be developed as maintainable modules with clear responsibilities.
+6. **Scalability** — The architecture should accommodate additional users, data, features and clients.
+7. **Intelligent Discovery** — Search and future recommendation capabilities should use structured information and entity relationships.
+8. **Future-Ready Design** — New capabilities should be introduced without unnecessarily restructuring the existing platform.
+
+---
+
+## 4. Platform Architecture Layers
+
+The platform is organized into logical architectural layers.
 
 ```text
-Presentation Layer (UI)
-        │
-        ▼
-Navigation Layer
-        │
-        ▼
-Feature Modules
-        │
-        ▼
-Entity Graph
-        │
-        ▼
-Identity Layer
-        │
-        ▼
-Data Layer
+┌──────────────────────────────────────┐
+│          Presentation Layer          │
+│       UI, Layouts and Components     │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│          Navigation Layer            │
+│       Routing and Context Flow       │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│           Feature Modules            │
+│ Research, Projects, Users, Events     │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│      Application and Business        │
+│              Services                │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│       Identity and Access Layer      │
+│ Authentication and Authorization    │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│           Data Access Layer          │
+│       Repositories and Queries       │
+└──────────────────┬───────────────────┘
+                   ▼
+┌──────────────────────────────────────┐
+│          Data and Storage            │
+│ PostgreSQL, Files and Other Storage  │
+└──────────────────────────────────────┘
 ```
+
+These are logical responsibilities, not a requirement to deploy every layer as a separate service or application.
+
+The entity relationship model is shared across the relevant modules and is implemented through the data layer.
 
 ---
 
-# Entity-First Architecture
+## 5. Entity-Centric Architecture
 
-Everything inside the platform is treated as an Entity.
+The platform uses entities to represent the primary objects managed by its features.
 
 Examples include:
 
-* User
-* Organization
-* Project
-* Publication
-* Laboratory
-* Institute
-* Company
-* Skill
-* Badge
-* Course
-* Technology
-* Dataset
-* Equipment
-* Patent
-* Competition
-* Event
-* Repository
-* Research Area
+- User
+- Organization
+- Department
+- Team
+- Project
+- Publication
+- Laboratory
+- Institute
+- Company
+- Skill
+- Badge
+- Course
+- Technology
+- Dataset
+- Equipment
+- Patent
+- Competition
+- Event
+- Repository
+- Research Area
+- Resource
 
-Every entity follows a common architecture regardless of its type.
+Not every possible entity type needs to be implemented at the beginning. New types should be introduced when supported by a defined use case, data model and feature requirement.
 
----
+Each entity type has its own domain-specific attributes and relationships.
 
-# Universal Entity Structure
-
-Every entity contains:
-
-* Internal ID
-* Public Identifier
-* Name
-* Description
-* Metadata
-* Relationships
-* Timeline
-* Statistics
-* Activity
-* Tags
-* Files
-* Visibility
-* Owner
-* Permissions
-* Creation Date
-* Last Updated
-
-Additional properties are added depending on entity type.
+The platform should avoid forcing unrelated entity types into one oversized universal database table.
 
 ---
 
-# Identity Layer
+## 6. Entity Structure
 
-Every entity possesses three identities.
+Entities share a set of common conceptual characteristics where applicable.
 
-## Internal ID
+These may include:
 
-Platform database identifier.
+- Internal database identifier
+- Public identifier or slug
+- Name or title
+- Description
+- Type-specific attributes
+- Metadata
+- Relationships
+- Visibility settings
+- Ownership or responsible organization
+- Access permissions
+- Associated files or resources
+- Creation timestamp
+- Last-updated timestamp
 
-Example:
+Some entity types may additionally require:
 
+- Activity history
+- Statistics
+- Tags or categories
+- Status and lifecycle information
+- Version information
+- Approval records
+
+These characteristics should be implemented according to entity requirements rather than assumed to exist identically on every entity.
+
+---
+
+## 7. Identity and Identifier Architecture
+
+The platform distinguishes between database identifiers, public identifiers and official record identifiers.
+
+### 7.1 Internal Database Identifier
+
+Every database record must have a stable internal primary key.
+
+This identifier is used for database relationships and internal application operations.
+
+For example:
+
+```text
+Database primary key: 8f2a... (UUID)
 ```
-USR-000001
-```
 
----
+The actual identifier format is an implementation decision and should be selected consistently for the relevant data models.
 
-## Public Identifier
+### 7.2 Public Identifier
 
-Human-readable identifier.
+A public identifier provides a human-readable reference to an entity.
 
 Examples:
 
-```
+```text
 @mahir
-
 research-hub
-
 dhaka-polytechnic
 ```
 
-Used for:
+Depending on the entity type, public identifiers may be used for:
 
-* URLs
-* Search
-* Mentions
-* References
+- Human-readable URLs
+- Search and discovery
+- Mentions and references
+- Sharing entity profiles
+- Navigation
 
----
+Public identifiers should be unique within their defined namespace and should not replace internal database keys.
 
-## Official Platform Identifier
+### 7.3 Official Record Identifier
 
-Used for certificates, memberships, publications and official records.
+Certain records may require formal identifiers for verification, reference or administration.
 
-Example:
+Possible examples include:
 
-```
+```text
 DPRC-BD-ENG-000001
 ```
 
+This is a conceptual example only. The actual identifier format, issuing authority, validation process and scope must be formally defined before official use.
+
+Official identifiers should be applied only to record types that require them, such as certificates, memberships or selected publications.
+
 ---
 
-# Universal Relationship Graph
+## 8. Entity Relationships
 
-Nothing exists independently.
+The platform is designed around explicit relationships between entities.
 
-Every entity is connected with multiple other entities.
-
-Example:
+For example, a user may have relationships with:
 
 ```text
 User
@@ -184,12 +233,12 @@ User
 ├── Badges
 ├── Events
 ├── Technologies
-├── Education
-├── Experience
+├── Education Records
+├── Professional Experience
 └── Research Interests
 ```
 
-Projects connect to:
+A project may have relationships with:
 
 ```text
 Project
@@ -202,10 +251,10 @@ Project
 ├── Equipment
 ├── Discussions
 ├── Tasks
-└── Timeline
+└── Timeline Records
 ```
 
-Organizations connect to:
+An organization may have relationships with:
 
 ```text
 Organization
@@ -218,398 +267,433 @@ Organization
 └── Events
 ```
 
-Relationships continue expanding without architectural limitations.
+These examples illustrate possible relationships, not a requirement that every entity must be connected to every other entity.
+
+Relationships should have explicit meanings, cardinalities and constraints. Many-to-many relationships should be implemented through appropriate association records where necessary.
+
+The architecture may expand as new requirements emerge, while maintaining a consistent relationship model.
 
 ---
 
-# Interconnected Navigation
+## 9. Relationship Model and Knowledge Graph
 
-Navigation is not limited to menus.
+The platform's interconnected data model can be understood conceptually as a knowledge graph.
 
-Every visible entity inside the interface is interactive.
+For example:
 
-Examples:
+```text
+User
+  │
+  ├── participates in ── Project
+  │                         │
+  │                         ├── produces ── Publication
+  │                         │
+  │                         ├── uses ── Technology
+  │                         │
+  │                         └── requires ── Equipment
+  │
+  ├── belongs to ── Organization
+  │
+  └── has ── Skill
+```
 
-Click a Skill
+The knowledge graph describes how information is related. It does not require a dedicated graph database.
 
-↓
+The initial implementation may use PostgreSQL with relational tables, foreign keys, association tables and suitable queries.
 
+A specialized graph database or graph-processing service may be evaluated later if actual requirements justify it.
+
+---
+
+## 10. Interconnected Navigation
+
+Navigation should allow users to move between related entities without depending exclusively on traditional menus.
+
+For example:
+
+```text
+Skill
+  ↓
 Skill Profile
-
-↓
-
+  ↓
 Related Users
+  ↓
+Organizations
+  ↓
+Relevant Projects
+  ↓
+Related Publications
+  ↓
+Technologies and Research Areas
+```
 
-↓
+Another example:
 
-Organizations using the skill
-
-↓
-
-Projects requiring the skill
-
-↓
-
-Publications using the technology
-
-↓
-
-Statistics
-
-↓
-
-Global skill graph
-
----
-
-Click an Institute
-
-↓
-
+```text
+Institute
+  ↓
 Institute Profile
-
-↓
-
-Students
-
-↓
-
-Faculty
-
-↓
-
-Research Labs
-
-↓
-
-Departments
-
-↓
-
+  ↓
+Students and Faculty
+  ↓
+Departments and Laboratories
+  ↓
 Projects
-
-↓
-
+  ↓
 Publications
-
-↓
-
+  ↓
 Collaborating Organizations
+```
 
----
+A badge may lead to:
 
-Click a Badge
-
-↓
-
-Badge Description
-
-↓
-
+```text
+Badge
+  ↓
+Description
+  ↓
 Requirements
-
-↓
-
+  ↓
 Eligible Users
-
-↓
-
-Achievement Statistics
-
-↓
-
+  ↓
 Related Skills
-
-↓
-
+  ↓
 Learning Resources
+```
+
+These are intended navigation paths. Their availability depends on the relevant entities, relationships, permissions and implemented features.
+
+Every navigation destination should provide a useful route forward or a clear way to return to its previous context.
 
 ---
 
-Every object becomes an entry point into the knowledge graph.
+## 11. Contextual Navigation
 
----
+Navigation should preserve enough context for users to understand where they are and how they arrived there.
 
-# Context Navigation
-
-Navigation always preserves context.
-
-Example:
+An example exploration path is:
 
 ```text
 Home
-
-↓
-
+  ↓
 User
-
-↓
-
+  ↓
 Skill
-
-↓
-
+  ↓
 Project
-
-↓
-
+  ↓
 Publication
-
-↓
-
+  ↓
 Organization
-
-↓
-
+  ↓
 Laboratory
-
-↓
-
+  ↓
 Equipment
-
-↓
-
+  ↓
 Technology
-
-↓
-
-Back to User
+  ↓
+Return to User
 ```
 
-Users should never feel they have reached a dead end.
+The interface may support contextual breadcrumbs, related-entity links, navigation history and other mechanisms to prevent users from reaching dead ends.
 
-Every screen offers multiple paths for exploration.
-
----
-
-# Intelligent UI Philosophy
-
-The interface is designed as an interactive visualization of platform knowledge rather than a collection of webpages.
-
-Pages contain independent Sections.
-
-Each section represents an entity container capable of expansion.
-
-Examples:
-
-* Skills Section
-* Education Section
-* Publications Section
-* Experience Section
-* Technologies Section
-* Organizations Section
-
-Initially these sections summarize information.
-
-When selected, they expand into dedicated entity views with deeper relationships and analytics.
+The exact navigation mechanism may differ between web, desktop and mobile interfaces.
 
 ---
 
-# Section Expansion Model
+## 12. Intelligent UI Philosophy
 
-Every section can evolve into its own module.
+The interface should present platform information as connected, structured and explorable content rather than as a collection of unrelated webpages.
 
-Example:
-
-Profile
-
-↓
-
-Skills Section
-
-↓
-
-Skill Module
-
-↓
-
-Skill Analytics
-
-↓
-
-Global Statistics
-
-↓
-
-Related Users
-
-↓
-
-Learning Resources
-
-↓
-
-Projects
-
-↓
-
-Research Areas
-
-This allows the interface to scale indefinitely without redesign.
-
----
-
-# Future UI Architecture
-
-The UI should communicate advanced technology rather than imitate traditional dashboards.
-
-Design goals include:
-
-* Layered depth
-* Glass and translucent surfaces
-* Dynamic gradients
-* Motion with purpose
-* Context-aware transitions
-* Interactive data visualization
-* Relationship animations
-* Knowledge graph exploration
-* Adaptive layouts
-* Real-time statistics
-* Immersive engineering aesthetic
-
-Future enhancements may include particle systems, animated backgrounds, WebGL visualization and AI-assisted interaction while maintaining performance and accessibility.
-
----
-
-# Collaboration Model
-
-Users may simultaneously belong to multiple organizations, projects, laboratories and research groups.
-
-Organizations may collaborate on multiple projects.
-
-Projects may generate multiple publications.
-
-Publications may reference multiple projects.
-
-Every relationship is many-to-many whenever appropriate.
-
----
-
-# Activity System
-
-Every important platform event generates permanent history.
+Pages may contain sections representing specific information domains.
 
 Examples include:
 
-* Joined organization
-* Created project
-* Published research
-* Earned badge
-* Completed certification
-* Uploaded dataset
-* Opened collaboration
-* Reviewed publication
+- Skills
+- Education
+- Publications
+- Professional Experience
+- Technologies
+- Organizations
+- Projects
+- Research Interests
 
-Activities become searchable platform knowledge.
+Sections should initially provide useful summaries and may link to dedicated views when additional information or functionality is available.
 
----
-
-# Search Architecture
-
-Search operates across every entity.
-
-Queries may return:
-
-* Users
-* Skills
-* Organizations
-* Projects
-* Publications
-* Technologies
-* Events
-* Laboratories
-* Courses
-* Companies
-
-Future semantic search and AI-assisted discovery will operate on the same entity graph.
+Dedicated entity views should provide relevant details, relationships, actions and analytics according to the entity type and the user's permissions.
 
 ---
 
-# Recommendation Engine
+## 13. Section Expansion Model
 
-Recommendations are generated through relationships between entities.
+A section may evolve into a dedicated feature or module when its complexity justifies it.
 
-Possible recommendations include:
+For example:
 
-* Collaborators
-* Projects
-* Organizations
-* Skills to learn
-* Publications
-* Competitions
-* Grants
-* Laboratories
-* Technologies
+```text
+User Profile
+  ↓
+Skills Section
+  ↓
+Skill Details
+  ↓
+Skill Analytics
+  ↓
+Related Users
+  ↓
+Learning Resources
+  ↓
+Relevant Projects
+  ↓
+Related Research Areas
+```
 
-Recommendations improve continuously as platform knowledge grows.
+This approach allows features to grow incrementally.
 
----
-
-# AI Integration
-
-Artificial Intelligence operates across the entire platform rather than individual modules.
-
-Capabilities may include:
-
-* Research discovery
-* Knowledge summarization
-* Collaboration suggestions
-* Project recommendations
-* Skill development
-* Publication assistance
-* Semantic search
-* Engineering assistant
-* Career guidance
-
-AI should understand relationships across the complete platform graph.
+However, not every section needs to become an independent module. Expansion should be driven by actual user needs, complexity and maintainability.
 
 ---
 
-# Cross-Platform Architecture
+## 14. Future UI Architecture
 
-All clients share the same architecture.
+The long-term interface direction emphasizes a modern, responsive and interactive engineering environment.
 
-Supported clients include:
+Design goals include:
 
-* Web
-* Desktop
-* Mobile
-* Tablet
-* Future DPRC Operating System
+- Layered visual depth
+- Glass and translucent surfaces where appropriate
+- Dynamic gradients
+- Purposeful motion and animation
+- Context-aware transitions
+- Interactive data visualization
+- Relationship visualization
+- Knowledge graph exploration
+- Adaptive layouts
+- Data-driven statistics
+- An immersive engineering aesthetic
 
-Only presentation changes between platforms; the entity graph remains identical.
+Potential future enhancements include:
+
+- Particle systems
+- Animated backgrounds
+- WebGL-based visualization
+- Advanced data visualization
+- AI-assisted interaction
+
+These enhancements must preserve usability, performance, accessibility and compatibility across supported devices.
+
+Visual complexity should never compromise the clarity or reliability of core platform workflows.
 
 ---
 
-# Future Expansion
+## 15. Collaboration Model
 
-New entity types can be introduced without redesigning the platform.
+The data model should support users participating in multiple organizations, projects, laboratories and research groups where appropriate.
+
+Examples include:
+
+- A user participating in multiple projects.
+- A user holding memberships in multiple organizations.
+- An organization participating in multiple projects.
+- A project involving multiple organizations.
+- A project producing multiple publications.
+- A publication referencing multiple projects.
+- A laboratory supporting multiple research activities.
+
+Relationships should be many-to-many when the actual domain requires it. Other relationships may be one-to-one or one-to-many.
+
+Project membership, organization membership, publication authorship and other relationships should be represented separately when they have different meanings or permissions.
+
+---
+
+## 16. Activity and Audit Architecture
+
+The platform may maintain activity records to provide history, accountability and context.
+
+Possible activity examples include:
+
+- Joining an organization
+- Creating a project
+- Publishing research
+- Earning a badge
+- Completing a certification
+- Uploading a dataset
+- Opening a collaboration request
+- Reviewing a publication
+
+Activity records and audit records serve different purposes.
+
+**Activity records** provide user-facing history and contextual information.
+
+**Audit records** capture important security-sensitive or administrative actions where accountability is required.
+
+Examples of audit-worthy actions may include:
+
+- Changes to permissions
+- Administrative account changes
+- Sensitive record updates
+- Approval decisions
+- Important data-management operations
+
+Not every interaction needs a permanent activity record. Retention, visibility, privacy and access rules must be defined for each record category.
+
+---
+
+## 17. Search Architecture
+
+Search should support discovery across relevant platform entities.
+
+Potential search targets include:
+
+- Users
+- Skills
+- Organizations
+- Projects
+- Publications
+- Technologies
+- Events
+- Laboratories
+- Courses
+- Companies
+- Datasets
+- Equipment
+- Resources
+
+Search results must respect visibility settings and access permissions.
+
+The initial implementation may use database-backed search and indexing appropriate to the available data.
+
+Future enhancements may include:
+
+- Semantic search
+- Relationship-aware discovery
+- Advanced filtering
+- AI-assisted search
+- Cross-entity search suggestions
+
+These capabilities should build upon the shared entity model rather than creating separate, disconnected search systems.
+
+---
+
+## 18. Recommendation Architecture
+
+The platform may introduce a recommendation system based on relationships, user interests, project information and available platform data.
+
+Possible recommendation categories include:
+
+- Potential collaborators
+- Relevant projects
+- Organizations
+- Skills to develop
+- Publications
+- Competitions
+- Grants and funding opportunities
+- Laboratories
+- Technologies
+- Learning resources
+
+Recommendations should be explainable where practical and should respect privacy and access restrictions.
+
+The recommendation engine is a planned capability. Its algorithms, data requirements, evaluation criteria and implementation strategy will be defined separately.
+
+---
+
+## 19. AI Integration
+
+Artificial Intelligence may be integrated across platform modules through shared services rather than implemented as unrelated functionality in each feature.
+
+Potential capabilities include:
+
+- Research discovery
+- Knowledge summarization
+- Collaboration suggestions
+- Project recommendations
+- Skill-development assistance
+- Publication assistance
+- Semantic search
+- Engineering assistance
+- Career guidance
+
+AI services should use relevant platform context while respecting authorization, data privacy and applicable usage restrictions.
+
+AI-generated outputs must remain subject to human review, particularly for technical, academic and engineering decisions.
+
+The architecture should allow AI providers and models to be evaluated or replaced without unnecessarily coupling core platform modules to a single provider.
+
+These capabilities are part of the long-term technical direction and should not be treated as implemented unless verified in the software.
+
+---
+
+## 20. Cross-Platform Architecture
+
+The platform is intended to support multiple client applications while maintaining consistent backend services and shared data models.
+
+Potential clients include:
+
+- Web
+- Desktop
+- Mobile
+- Tablet
+
+Future specialized clients may also be considered where there is a clear use case.
+
+The presentation and interaction patterns may differ between platforms. However, identity, permissions, business rules and shared data relationships should remain consistent.
+
+A client application must not be treated as the authority for security-sensitive decisions. Authentication, authorization and critical business rules must be enforced by trusted backend services.
+
+Offline capabilities may be introduced through local storage, synchronization and conflict-resolution mechanisms. Their implementation requires separate technical planning.
+
+---
+
+## 21. Future Expansion
+
+The architecture should allow new entity types and modules to be introduced when justified by platform requirements.
 
 Possible future additions include:
 
-* Funding
-* Grants
-* Scholarships
-* Engineering Competitions
-* Startups
-* Companies
-* Digital Libraries
-* Courses
-* Certifications
-* Marketplaces
-* Open Hardware
-* Open Source Repositories
+- Funding Opportunities
+- Grants
+- Scholarships
+- Engineering Competitions
+- Startups
+- Companies
+- Digital Libraries
+- Courses
+- Certifications
+- Marketplaces
+- Open Hardware Resources
+- Open-Source Repositories
 
-The architecture is intentionally extensible.
+These additions should reuse existing identity, relationship, access-control and data-management services wherever appropriate.
+
+The presence of open-source repositories or open-hardware resources within the platform does not determine the software licensing model of DPRC Platform itself.
 
 ---
 
-# Long-Term Vision
+## 22. Architectural Evolution
 
-The DPRC Platform is not a collection of webpages.
+The architecture is a living reference and may evolve as implementation experience and requirements become clearer.
 
-It is an interconnected engineering knowledge ecosystem where every entity can relate to every other entity.
+Changes should follow these principles:
 
-The user interface, navigation system, database and AI services are all built upon the same universal entity graph, allowing the platform to grow continuously without fundamental architectural redesign.
+1. Preserve stable interfaces between major modules where practical.
+2. Avoid unnecessary duplication of entities and business logic.
+3. Maintain clear ownership of data and responsibilities.
+4. Introduce new infrastructure only when justified by actual requirements.
+5. Keep security and access control consistent across clients.
+6. Distinguish implemented capabilities from planned and conceptual features.
+7. Update related documentation when an architectural decision changes.
 
-Every future feature should strengthen this interconnected ecosystem while preserving modularity, scalability, interoperability and long-term sustainability.
+The actual implementation, verified technical decisions and approved requirements take precedence over conceptual examples in this document.
+
+---
+
+## 23. Long-Term Vision
+
+The DPRC Platform is intended to become more than a collection of webpages or independent software modules.
+
+It is designed as an interconnected engineering and research knowledge ecosystem in which people, projects, publications, technologies, organizations and resources can be discovered through meaningful relationships.
+
+The user interface, navigation, application services, data model and future intelligent services should reinforce this shared architectural foundation.
+
+Every new feature should strengthen the platform's usefulness while preserving modularity, scalability, interoperability, security and long-term maintainability.

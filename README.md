@@ -1,14 +1,16 @@
 # DPRC Platform
 
-An open-source engineering, research, education and innovation ecosystem being developed to connect diploma students, teachers, researchers, alumni and industry across Bangladesh.
+A privately controlled engineering, research, education and innovation platform being developed to connect diploma students, teachers, researchers, alumni and industry through applied engineering, practical learning, collaboration and research for Bangladesh.
 
-The platform is designed to evolve into a cross-platform system supporting web, desktop, mobile, VR and AI technologies for engineering education, collaboration, applied research and project development.
+The platform is designed to evolve into a cross-platform system supporting web, desktop, mobile, VR and AI technologies for engineering education, collaboration, applied research and real-world project development.
+
+The repository is publicly visible for transparency, documentation, development visibility, collaboration and partnership opportunities. Public repository visibility does not mean that the software is open source or that rights to copy, modify, redistribute or commercially exploit the software are granted.
 
 ---
 
 ## Vision
 
-To build the largest applied engineering and research ecosystem for Bangladesh's diploma and technical education community, enabling innovation, practical learning, interdisciplinary collaboration and sustainable technological development.
+To build a scalable applied engineering and research ecosystem for Bangladesh's diploma and technical education community, enabling innovation, practical learning, interdisciplinary collaboration, real-world engineering development and sustainable technological progress.
 
 ---
 
@@ -16,20 +18,47 @@ To build the largest applied engineering and research ecosystem for Bangladesh's
 
 - Connect students, teachers, alumni, researchers and industry through one digital platform.
 - Improve practical engineering education alongside the academic curriculum.
-- Support research, innovation and real-world engineering projects.
-- Build self-sustaining research initiatives through collaboration, resource management and technology.
-- Create opportunities for future commercialization and international partnerships.
+- Support applied engineering research, innovation and real-world engineering projects.
+- Provide digital infrastructure for research, project development, collaboration and knowledge sharing.
+- Encourage interdisciplinary engineering activities and practical problem-solving.
+- Build sustainable research and innovation initiatives through collaboration, resource management and technology.
+- Create opportunities for future commercialization, industry collaboration and international partnerships.
+
+---
+
+## Applied Engineering Philosophy
+
+Applied engineering is a core philosophy of the DPRC Platform.
+
+The platform is intended to support engineering activities that connect knowledge with practical implementation, experimentation, research and real-world problem-solving.
+
+This includes:
+
+- Practical engineering projects
+- Applied research
+- Prototyping and experimentation
+- Engineering testing and validation
+- Interdisciplinary project development
+- Engineering laboratories and simulations
+- Digital twins and virtual environments
+- Industry-oriented problem solving
+- Innovation and technology development
+- Knowledge sharing between students, teachers, researchers and professionals
+
+The long-term objective is to create an environment where diploma-level technical education can progress beyond classroom learning toward practical engineering research, innovation and development.
 
 ---
 
 ## Long-Term Goals
 
-- Develop a nationwide research network connecting government polytechnic institutes.
-- Build virtual laboratories and digital twin environments for engineering education.
-- Support multidisciplinary mega-projects involving multiple engineering fields.
+- Develop a scalable research and applied-engineering network connecting government polytechnic institutes and compatible research organizations.
+- Build virtual laboratories and digital twin environments for engineering education and research.
+- Support multidisciplinary engineering projects involving multiple engineering fields.
 - Integrate AI-assisted learning, project management and research tools.
 - Expand into desktop, mobile, embedded systems, AR and VR applications.
-- Become a globally recognized engineering and innovation platform.
+- Support collaboration between students, teachers, researchers, academic institutions and industry.
+- Develop advanced engineering simulation and research capabilities.
+- Become a globally recognized platform for applied engineering, research and innovation.
 
 ---
 
@@ -105,7 +134,7 @@ Major modules include:
 - Authentication
 - User Management
 - Research Management
-- Projects
+- Applied Engineering Projects
 - Publications
 - Events
 - Communities
@@ -117,57 +146,3 @@ Major modules include:
 - Administration Dashboard
 - Analytics
 - Documentation
-- Management
-
-Each module will evolve independently while remaining integrated within a unified ecosystem.
-
----
-
-## Planned Features
-
-- Research project management
-- Engineering portfolio system
-- Student collaboration platform
-- Department-based communities
-- Digital publications
-- Event management
-- Resource sharing
-- Engineering calculators
-- Virtual laboratories
-- Digital twin laboratories
-- AI-powered engineering assistant
-- Innovation challenge platform
-- Startup incubation support
-- Industry collaboration
-- National engineering network
-
----
-
-## License
-
-The licensing model will be determined before the first public release.
-
-The long-term objective is to balance open collaboration, sustainability and intellectual property protection while encouraging innovation and community participation.
-
----
-
-## Contact
-
-Project Status:
-Active Development
-
-## Founding Team
-
-Founder: Mahir Azad Aurnob
-https://www.facebook.com/KING.Mahir.11
-
-Co-Founder: Namir Sain
-https://www.facebook.com/namirsain
-
-Co-Founder: Tanjim Hassan Sabit
-https://www.facebook.com/tanjim.hassan.sabit
-
-Location:
-Dhaka, Bangladesh
-
-For future collaboration, sponsorship, institutional partnerships and technical contributions, official communication channels will be published after the project's first public release.
